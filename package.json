@@ -2,10 +2,7 @@
   "name": "pill",
   "version": "1.4.3",
   "description": "Just another test",
-  "author": {
-    "name": "György Papp",
-    "email": "gyuripp@gmail.com"
-  },
+  "author": "LeUsr",
   "repository": {
     "type": "git",
     "url": "https://github.com/leusr/pill.git"
