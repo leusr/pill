@@ -91,7 +91,7 @@ function no_category_base_rewrite_rules( $category_rewrite ) {
 /* For Debugging *
 add_filter( 'rewrite_rules_array', 'no_category_base_rewrite_rules_array' );
 function no_category_base_rewrite_rules_array( $category_rewrite ) {
-	_prc( $category_rewrite );
+	prc( $category_rewrite );
 } /**/
 
 /**
