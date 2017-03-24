@@ -20,11 +20,11 @@ module.exports = function (grunt) {
             'Theme Name:  Pillana(r)t\n' +
             'Description: <%= pkg.description %>\n' +
             'Version:     <%= pkg.version %>\n' +
-            'Author:      <%= pkg.author.name %>\n' +
-            'Text Domain: <%= pkg.name %>-theme\n' +
+            'Author:      Gyorgy Papp\n' +
+            'Text Domain: pillanart-theme\n' +
             '*/',
 
-        builddata: 'v<%= pkg.version %> by <%= pkg.author.name %> | ' +
+        builddata: 'v<%= pkg.version %> by Gyorgy Papp | ' +
             '<%= grunt.template.today("mmm d \'yy") %> ' +
             'at <%= grunt.template.today("H:MM") %> */',
 
@@ -34,20 +34,20 @@ module.exports = function (grunt) {
                 options: {
                     strictMath: true
                 },
-                src: 'src/theme/less/<%= pkg.name %>.less',
-                dest: 'public/assets/css/<%= pkg.name %>.css'
+                src: 'src/theme/less/pillanart.less',
+                dest: 'web/public/assets/css/pillanart.css'
             },
             editor: {
                 src: 'src/theme/less/editor/editor.less',
-                dest: 'public/app/themes/pillanart/editor-style.css'
+                dest: 'web/public/app/themes/pillanart/editor-style.css'
             },
             members: {
                 src: 'src/plugin/less/pillanart-ms.less',
-                dest: 'public/app/plugins/pillanart-ms/assets/pillanart-ms.css'
+                dest: 'web/public/app/plugins/pillanart-ms/assets/pillanart-ms.css'
             },
             plugin: {
                 src: 'src/plugin/less/thumbnail-col.less',
-                dest: 'public/app/plugins/site-functionality/assets/thumbnail-col.css'
+                dest: 'web/public/app/plugins/site-functionality/assets/thumbnail-col.css'
             }
         },
 
@@ -104,7 +104,7 @@ module.exports = function (grunt) {
             },
             theme: {
                 src: '<%= less.theme.dest %>',
-                dest: 'public/assets/css/<%= pkg.name %>.min.css'
+                dest: 'web/public/assets/css/pillanart.min.css'
             },
             editor: {
                 src: '<%= less.editor.dest %>',
@@ -112,11 +112,11 @@ module.exports = function (grunt) {
             },
             members: {
                 src: '<%= less.members.dest %>',
-                dest: 'public/app/plugins/pillanart-ms/assets/pillanart-ms.min.css'
+                dest: 'web/public/app/plugins/pillanart-ms/assets/pillanart-ms.min.css'
             },
             plugin: {
                 src: '<%= less.plugin.dest %>',
-                dest: 'public/app/plugins/site-functionality/assets/thumbnail-col.min.css'
+                dest: 'web/public/app/plugins/site-functionality/assets/thumbnail-col.min.css'
             }
         },
 
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
                     "src/theme/js/jquery.bxslider.js",
                     "src/theme/js/jquery.main.js"
                 ],
-                dest: 'public/assets/js/<%= pkg.name %>-pkgd.js'
+                dest: 'web/public/assets/js/pillanart-pkgd.js'
             }
         },
 
@@ -147,9 +147,9 @@ module.exports = function (grunt) {
             },
             target: {
                 expand: true,
-                cwd: 'public/assets/js/',
+                cwd: 'web/public/assets/js/',
                 src: ['*.js', '!*.min.js'],
-                dest: 'public/assets/js/',
+                dest: 'web/public/assets/js/',
                 ext: '.min.js'
             }
         },
@@ -160,7 +160,7 @@ module.exports = function (grunt) {
                     banner: '/*! Pillana(r)t Styles <%= builddata %>'
                 },
                 files: {
-                    src: ['public/assets/css/*.css']
+                    src: ['web/public/assets/css/*.css']
                 }
             },
             members: {
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
                     banner: '/*! Pillana(r)t Members and SEO <%= builddata %>'
                 },
                 files: {
-                    src: ['public/app/plugins/pillanart-ms/**/*.css']
+                    src: ['web/public/app/plugins/pillanart-ms/**/*.css']
                 }
             },
             plugin: {
@@ -176,7 +176,7 @@ module.exports = function (grunt) {
                     banner: '/*! Pillana(r)t Site Functionality <%= builddata %>'
                 },
                 files: {
-                    src: ['public/app/plugins/site-functionality/**/*.css']
+                    src: ['web/public/app/plugins/site-functionality/**/*.css']
                 }
             },
             js: {
@@ -184,7 +184,7 @@ module.exports = function (grunt) {
                     banner: '/*! Pillana(r)t Scripts <%= builddata %>'
                 },
                 files: {
-                    src: ['public/assets/js/*.js']
+                    src: ['web/public/assets/js/*.js']
                 }
             }
 
@@ -237,7 +237,7 @@ module.exports = function (grunt) {
         ]);
 
     grunt.registerTask('wpthemedata', 'Write WordPress theme header to style.css from package.json', function () {
-            var file = grunt.template.process('public/app/themes/<%= pkg.name %>/style.css');
+            var file = grunt.template.process('web/public/app/themes/pillanart/style.css');
             var data = grunt.template.process('<%= wpthemedata %>');
 
             var chalk = require('chalk');

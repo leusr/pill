@@ -1,4 +1,4 @@
-/*! Pillana(r)t Styles v1.4.3 by György Papp | Aug 14 '16 at 22:53 */
+/*! Pillana(r)t Styles v1.5.0 by Gyorgy Papp | Mar 24 '17 at 11:11 */
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -2234,7 +2234,6 @@ form#contact {
 	height: auto;
 	max-height: 100%;
 	vertical-align: middle;
-	cursor: -webkit-grab;
 	cursor: grab;
 }
 
