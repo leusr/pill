@@ -3,7 +3,6 @@
 /**
  * Theme constants
  */
-define( 'THEME_JQUERY_VERSION', '2.2.1' );
 define( 'THEME_ASSETS_BASEURL', home_url( '/assets/' ) );
 
 class Pillanart {
@@ -113,7 +112,7 @@ class Pillanart {
 		wp_enqueue_style( 'pillanart', assets_min_url( '/css/pillanart.css' ), [], $this->theme_version() );
 
 		// jQuery
-		$jquery_url = dotmin( 'http://code.jquery.com/jquery-' . THEME_JQUERY_VERSION . '.js' );
+		$jquery_url = dotmin( 'http://code.jquery.com/jquery-3.2.1.js' );
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', $jquery_url, [], null, true );
 		add_filter( 'script_loader_src', [ $this, 'jquery_local_fallback' ], 10, 2 );
@@ -142,7 +141,7 @@ class Pillanart {
 		}
 
 		if ( $handle === 'jquery' ) {
-			$jquery_local_url = assets_min_url( '/js/lib/jquery-' . THEME_JQUERY_VERSION . '.js' );
+			$jquery_local_url = assets_min_url( '/js/lib/jquery.js' );
 			$add_jquery_fallback = apply_filters( 'script_loader_src', $jquery_local_url, 'jquery-fallback' );
 		}
 

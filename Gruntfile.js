@@ -129,7 +129,8 @@ module.exports = function (grunt) {
                     "src/theme/js/jquery.easing.1.4.js",
                     "src/theme/js/jquery.mobile-nav.js",
                     "src/theme/js/jquery.gallery.js",
-                    "src/theme/js/jquery.bxslider.js",
+                    // "src/theme/js/jquery.bxslider.js",
+                    "src/vendor/bxslider-4.2.7/dist/jquery.bxslider.js",
                     "src/theme/js/jquery.main.js"
                 ],
                 dest: 'web/public/assets/js/pillanart-pkgd.js'
