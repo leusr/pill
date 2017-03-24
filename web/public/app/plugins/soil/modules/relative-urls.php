@@ -16,7 +16,9 @@ use Roots\Soil\Utils;
  *
  */
 
-if ( is_admin() || isset($_GET['sitemap']) || in_array( $GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php'] ) ) {
+if ( is_admin() || isset( $_GET['sitemap'] )
+     || in_array( $GLOBALS['pagenow'], [ 'wp-login.php', 'wp-register.php' ] )
+) {
 	return;
 }
 
@@ -36,7 +38,15 @@ $root_rel_filters = apply_filters( 'soil/relative-url-filters', [
 	'term_link',
 	'the_author_posts_link',
 	'script_loader_src',
-	'style_loader_src'
-]);
+	'style_loader_src',
+] );
 
 Utils\add_filters( $root_rel_filters, 'Roots\\Soil\\Utils\\root_relative_url' );
+
+add_filter( 'wp_calculate_image_srcset', function ( $sources ) {
+	foreach ( $sources as $source => $src ) {
+		$sources[ $source ]['url'] = \Roots\Soil\Utils\root_relative_url( $src['url'] );
+	}
+
+	return $sources;
+} );

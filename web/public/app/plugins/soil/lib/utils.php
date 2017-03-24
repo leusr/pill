@@ -4,15 +4,21 @@ namespace Roots\Soil\Utils;
 
 /**
  * Make a URL relative
+ *
  * @param string $input
+ *
  * @return string
  */
 function root_relative_url( $input ) {
+	if ( is_feed() ) {
+		return $input;
+	}
+
 	$url = parse_url( $input );
 	if ( ! isset( $url['host'] ) || ! isset( $url['path'] ) ) {
 		return $input;
 	}
-	$site_url = parse_url( network_site_url() );  // falls back to site_url
+	$site_url = parse_url( network_home_url() );  // falls back to home_url
 
 	if ( ! isset( $url['scheme'] ) ) {
 		$url['scheme'] = $site_url['scheme'];
@@ -31,8 +37,10 @@ function root_relative_url( $input ) {
 
 /**
  * Compare URL against relative URL
+ *
  * @param string $url
  * @param string $rel
+ *
  * @return bool
  */
 function url_compare( $url, $rel ) {
@@ -44,6 +52,7 @@ function url_compare( $url, $rel ) {
 
 /**
  * Hooks a single callback to multiple tags
+ *
  * @param string $tags
  * @param string $function
  * @param int    $priority
@@ -57,8 +66,10 @@ function add_filters( $tags, $function, $priority = 10, $accepted_args = 1 ) {
 
 /**
  * Display error alerts in admin panel
+ *
  * @param array|string $errors
  * @param string       $capability
+ *
  * @return bool|true|void
  */
 function alerts( $errors, $capability = 'activate_plugins' ) {

@@ -3,7 +3,7 @@
 Plugin Name:        Soil*
 Plugin URI:         https://roots.io/plugins/soil/
 Description:        A collection of modules to apply theme-agnostic front-end modifications to WordPress.
-Version:            3.6.2
+Version:            3.7.2
 Author:             Roots
 Author URI:         https://roots.io/
 
@@ -13,11 +13,8 @@ License URI:        http://opensource.org/licenses/MIT
 
 namespace Roots\Soil;
 
-
 class Options {
-
 	protected static $modules = [];
-
 	protected $options = [];
 
 	public static function init( $module, $options = [] ) {
@@ -69,4 +66,5 @@ function load_modules() {
 		}
 	}
 }
+
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\load_modules', 100 );
