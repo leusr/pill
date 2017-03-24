@@ -188,7 +188,7 @@ function scf_forms() {
         form = $('form#contact, form#wedding_request'),
         btn = form.find(':submit');
 
-    btn.removeProp('disabled');
+    btn.removeAttr('disabled');
     btn.after('<img class="scf-loader" src="/assets/img/scf-loader.gif">');
     form.prepend('<input type="hidden" name="potato" value="' + ( Math.round(Math.random() * (89576 - 28345)) + 28345 ) + '">');
 
