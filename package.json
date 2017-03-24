@@ -6,7 +6,10 @@
     "name": "György Papp",
     "email": "gyuripp@gmail.com"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leusr/pill.git"
+  },
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
