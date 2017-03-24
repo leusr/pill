@@ -1,4 +1,4 @@
-/*! Pillana(r)t Styles v1.5.0 by Gyorgy Papp | Mar 24 '17 at 11:11 */
+/*! Pillana(r)t Styles v1.5.2 by Gyorgy Papp | Mar 24 '17 at 20:54 */
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -2500,11 +2500,12 @@ form#contact {
 
 .bx-wrapper {
 	position: relative;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
 }
 
 .bx-viewport {
 	-webkit-transform: translatez(0);
-	transform: translatez(0);
 }
 
 .bx-loading {

@@ -2,9 +2,12 @@
 node_modules
 public/*
 temp/*
+src/vendor/*
 web/public/maxer_php_error.*
 web/public/.conf/*
-web/public/media/*
 web/public/app/cache/*
 web/public/app/404.log
+web/public/media/*
+web/public/wpbase/*
+!web/public/wpbase/wp-config.php
 web/sql/*

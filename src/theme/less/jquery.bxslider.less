@@ -1,10 +1,12 @@
 //
 // BxSlider
 //
-// @version: 4.1.2
+// @version: 4.2.12
 // @homepage: http://bxslider.com
 // @author: Steven Wanderski
 // @url: http://stevenwanderski.com
+//
+// Lessified by me.
 //
 
 
@@ -13,6 +15,7 @@
 
 .bx-wrapper {
   position: relative;
+  touch-action: pan-y;
 }
 
 
@@ -20,7 +23,7 @@
 // --------------------------------------------------------------
 
 .bx-viewport {
-  transform: translatez(0);
+  -webkit-transform: translatez(0);
 }
 
 .bx-loading {

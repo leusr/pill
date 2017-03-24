@@ -1,4 +1,4 @@
-/*! Pillana(r)t Scripts v1.5.0 by Gyorgy Papp | Mar 24 '17 at 11:24 */
+/*! Pillana(r)t Scripts v1.5.2 by Gyorgy Papp | Mar 24 '17 at 20:54 */
 /*
  * jQuery Easing v1.4.0 - http://gsgd.co.uk/sandbox/jquery/easing/
  * Open source under the BSD License.

@@ -20,11 +20,11 @@ module.exports = function (grunt) {
             'Theme Name:  Pillana(r)t\n' +
             'Description: <%= pkg.description %>\n' +
             'Version:     <%= pkg.version %>\n' +
-            'Author:      Gyorgy Papp\n' +
+            'Author:      <%= pkg.author.name %>\n' +
             'Text Domain: pillanart-theme\n' +
             '*/',
 
-        builddata: 'v<%= pkg.version %> by Gyorgy Papp | ' +
+        builddata: 'v<%= pkg.version %> by <%= pkg.author.name %> | ' +
             '<%= grunt.template.today("mmm d \'yy") %> ' +
             'at <%= grunt.template.today("H:MM") %> */',
 
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                     strictMath: true
                 },
                 src: 'src/theme/less/pillanart.less',
-                dest: 'web/public/assets/css/pillanart.css'
+                dest: 'web/public/assets/css/<%= pkg.name %>.css'
             },
             editor: {
                 src: 'src/theme/less/editor/editor.less',
@@ -104,7 +104,7 @@ module.exports = function (grunt) {
             },
             theme: {
                 src: '<%= less.theme.dest %>',
-                dest: 'web/public/assets/css/pillanart.min.css'
+                dest: 'web/public/assets/css/<%= pkg.name %>.min.css'
             },
             editor: {
                 src: '<%= less.editor.dest %>',
@@ -130,10 +130,10 @@ module.exports = function (grunt) {
                     "src/theme/js/jquery.mobile-nav.js",
                     "src/theme/js/jquery.gallery.js",
                     // "src/theme/js/jquery.bxslider.js",
-                    "src/vendor/bxslider-4.2.7/dist/jquery.bxslider.js",
+                    "src/vendor/bxslider-4.2.12/dist/jquery.bxslider.js",
                     "src/theme/js/jquery.main.js"
                 ],
-                dest: 'web/public/assets/js/pillanart-pkgd.js'
+                dest: 'web/public/assets/js/<%= pkg.name %>-pkgd.js'
             }
         },
 

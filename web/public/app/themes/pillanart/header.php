@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="ascii-art" content="yes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald:300,400,700%7CMerriweather+Sans:400,700,400italic&#38;subset=latin,latin-ext">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,400i,700|Oswald:300,400,700&amp;subset=latin-ext">
 
 	<?php wp_head() ?>
 </head>
