@@ -41,7 +41,6 @@ class SFC {
 	/** @var bool|string The output. */
 	private $output = false;
 
-
 	/**
 	 * Start the block.
 	 *
