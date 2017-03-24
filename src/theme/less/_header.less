@@ -1,0 +1,364 @@
+//
+// Header styles
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Apr-Jul, 2014
+// @revisited: Aug, 2015
+//
+
+
+.top-line,
+.main-nav,
+.header-social {
+  .hidden;
+}
+
+.header-social a {
+  background-image: url('@{assets}/img/social-colors.png');
+}
+
+.site-header {
+  background-color: #111;
+  height: 65px;
+  position: relative;
+  z-index: 200;
+
+  // Hack. Preload this image for social icons on bp-medium media query.
+  // (Not really belong to site-header element, but its visible some way in all media sizes.)
+  background-image: url('@{assets}/img/social-colors.png');
+  background-repeat: no-repeat;
+  background-position: -999em -999em;
+}
+
+.site-logo {
+  .fl;
+  margin: 10px 0 0 0.5em;
+  a {
+    .ir;
+    width: 215px;
+    height: 45px;
+    background: transparent url('@{assets}/img/pillanart-hu-dark-bg-215x45.png') no-repeat 50% 50%;
+  }
+  &.en a {
+    background-image: url('@{assets}/img/pillanart-en-dark-bg-215x45.png');
+  }
+}
+
+.mobile-nav-show {
+  .fr;
+  margin: 12px 0.3em 0 0;
+  font-size: 40px;
+  i {
+    color: #e7e7e7;
+    cursor: pointer;
+    &:hover {
+      color: @paOrange;
+    }
+  }
+}
+
+// Front page
+// ==========================================================================
+
+.members-promo {
+  padding: 20px 0 30px;
+  background-color: #fff;
+}
+
+ul.members-slider {
+  opacity: 0;
+  max-height: 281px;
+  transition: opacity 1s ease;
+  &.visible {
+    opacity: 1;
+    height: auto;
+  }
+}
+
+.member {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  // border: 1px solid #777;
+  .img-link {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+    overflow: hidden;
+    img {
+      .zoomimg(100%, auto);
+    }
+  }
+  &:hover .img-link img {
+    .zoomimghover(1.05);
+  }
+  .mem-cont {
+    width: 100%;
+    padding: 30px 10px 10px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85) 85%);
+    line-height: 1.15;
+    .wp-post-image {
+      .fl;
+      width: 60px;
+      height: auto;
+      margin-right: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+    }
+    h2 {
+      .ftitle(24px, 400, uppercase);
+      line-height: inherit;
+      margin-top: 10px;
+    }
+    .mem-meta {
+      .ftitle(18px, 300);
+      line-height: inherit;
+    }
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Media queries
+// ==========================================================================
+
+@media ( min-width: @bp-medium ) {
+
+  .header-social {
+    .display;
+    .fr;
+    margin: 11px 20px 0 0;
+    a {
+      display: inline-block;
+      font-size: 24px;
+      padding: 10px;
+      color: #e7e7e7;
+
+      // Hack. For avoid icon flashing transition on window resize
+      // bg images used on small devices, bg color and transition on normal.
+      background-color: #e1e1e1;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      &:hover {
+        color: #fff
+      }
+      &.icon-facebook:hover {
+        background-position: -100px 0;
+        background-color: @hxfacebook
+      }
+      &.icon-twitter:hover {
+        background-position: -200px 0;
+        background-color: @hxtwitter
+      }
+      &.icon-gplus:hover {
+        background-position: -300px 0;
+        background-color: @hxgplus
+      }
+      &.icon-pinterest:hover {
+        background-position: -400px 0;
+        background-color: @hxpinterest
+      }
+      span {
+        .hidden;
+      }
+    }
+  }
+
+}
+
+@media ( min-width: @bp-normal ) {
+
+  .mobile-nav,
+  .mobile-nav-show {
+    .hidden;
+  }
+
+  // Top line
+  // -------------------------------------------
+  .top-line {
+    .display;
+    line-height: 35px;
+    background: #222;
+    a {
+      display: block;
+      color: #e7e7e7;
+      line-height: inherit;
+      transition: all 0.3s ease;
+      &:hover {
+        color: #fff;
+        box-shadow: 0 -3px 0 @paOrange inset;
+      }
+    }
+  }
+
+  .top-nav {
+    .display;
+    .fl;
+    ul {
+      border-left: 1px solid #3c3c3c;
+      li {
+        .fl;
+        display: block;
+        border-right: 1px solid #3c3c3c;
+        a {
+          padding: 0 10px;
+        }
+        &.current-menu-item a {
+          color: #fff;
+          box-shadow: 0 -3px 0 @paOrange inset;
+        }
+      }
+    }
+  }
+
+  .lang-select {
+    .fr;
+    li {
+      .fl;
+      .cf;
+      a {
+        .fl;
+        display: block;
+        padding: 0 7px;
+      }
+      &.current-menu-item a {
+        color: #fff;
+        font-weight: 700;
+      }
+      &:first-child a:after {
+        // separator
+        .fr;
+        display: block;
+        content: "/";
+        color: #666;
+        margin: 0 -7px 0 7px;
+      }
+    }
+  }
+
+  .top-line ul.lang-select li.current-menu-item a:hover {
+    box-shadow: none;
+  }
+
+  // Site Header
+  // -------------------------------------------
+  .site-header {
+    height: auto;
+    padding: 28px 0 18px;
+    background-color: #fff;
+    z-index: auto;
+  }
+
+  .site-logo {
+    margin: 0 0 0 10px;
+    a {
+      width: 315px;
+      height: 65px;
+      background: transparent url('@{assets}/img/pillanart-hu-315x65.png') no-repeat 0 0;
+    }
+
+    &.en a {
+      background-image: url('@{assets}/img/pillanart-en-315x65.png');
+    }
+  }
+
+  .header-social {
+    margin: 15px 0 0 0;
+    a {
+      color: #fff;
+      background-image: none;
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  // Main Nav
+  // -------------------------------------------
+  .main-nav {
+    .display;
+    border-bottom: 1px solid #ddd;
+    .ftitle(16px, 400, uppercase);
+    width: 100%;
+    height: 54px;
+    background-color: #fff;
+    position: relative;
+    z-index: 9999;
+    ul {
+      .cf;
+      li {
+        .fl;
+        display: block;
+        margin-right: 1px;
+        position: relative;
+        a {
+          display: block;
+          padding: 12px 15px;
+          color: #333;
+          line-height: 30px;
+          transition: all 0.3s ease;
+          i.icon-down {
+            display: inline-block;
+            margin-left: 7px;
+            font-size: 12px;
+            vertical-align: middle;
+            color: #999;
+          }
+        }
+        a:hover,
+        &:hover > a,
+        &.current-menu-item,
+        &.current-menu-parent,
+        &.current-menu-ancestor {
+          color: #111;
+          box-shadow: 0 -7px 0 #e7e7e7 inset;
+        }
+        & > ul {
+          z-index: 100;
+          position: absolute;
+          top: 53px;
+          left: 0;
+          border: 1px solid #ddd;
+          width: 240px;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.4s ease-in-out;
+          li {
+            float: none;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+            a {
+              padding: 8px 15px;
+              background-color: #fff;
+              transition: background-color 0.3s ease;
+              &:hover {
+                box-shadow: none;
+                background-color: #f2f2f2;
+              }
+              i {
+                .hidden;
+              }
+            }
+            &:last-child {
+              border: none;
+            }
+          }
+        }
+        &:hover > ul {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+    &.fixed {
+      position: fixed;
+      top: 0;
+    }
+  }
+
+}

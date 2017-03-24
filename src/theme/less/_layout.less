@@ -1,0 +1,117 @@
+//
+// Layout wrappers
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Apr-Jul, 2014
+// @revisited: Aug, 2015
+//
+
+
+.site-container {
+  position: relative;
+}
+
+.wrap {
+  .cf;
+  width: 100%;
+  min-width: 320px;
+  padding: 0 2%;
+}
+
+.site-content {
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+.main-content {
+  max-width: 760px;
+}
+
+.sidebar,
+.site-footer,
+.bottom-nav,
+.debug {
+  .hidden;
+}
+
+@media ( min-width: @bp-normal ) {
+
+  .site-content {
+    padding: 20px 0;
+  }
+
+  .main-content {
+    .fl;
+    width: 70%;
+    padding-right: 3.5%;
+    max-width: none;
+  }
+
+  .sidebar {
+    .display;
+    .fr;
+    width: 30%;
+    padding-top: 6px;
+  }
+
+  .site-footer,
+  .bottom-nav {
+    .display;
+  }
+
+}
+
+@media ( min-width: @bp-large ) {
+
+  .wrap {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .main-content {
+    width: 800px;
+    padding-right: 40px;
+  }
+
+  .sidebar {
+    width: 340px;
+  }
+
+}
+
+
+//
+// jQuery $( window ).with and media queries mismatch workaround
+// -------------------------------------------------------------------------------
+//
+//	   if ( $( '.site-container' ).css( 'background-position' ) == '0 500px' ) { ... }
+//
+
+.site-container {
+  background-position: 0 0;
+}
+
+@media ( min-width: @bp-small ) {
+  .site-container {
+    background-position: 0 @bp-small;
+  }
+}
+
+@media ( min-width: @bp-medium ) {
+  .site-container {
+    background-position: 0 @bp-medium;
+  }
+}
+
+@media ( min-width: @bp-normal ) {
+  .site-container {
+    background-position: 0 @bp-normal;
+  }
+}
+
+@media ( min-width: @bp-large ) {
+  .site-container {
+    background-position: 0 @bp-large;
+  }
+}

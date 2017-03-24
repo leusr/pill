@@ -1,0 +1,220 @@
+//
+// Font / icon definitions
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Apr-Jul, 2014
+// @revisited: Aug, 2015
+//
+
+
+// Oswald
+// ----------------------------------------------
+
+.oswald,
+[class*="oswald"] {
+  font-family: 'Oswald', 'Helvetica Neue', 'Arial Black', Helvetica, Arial, sans-serif;
+  .font-smoothing;
+}
+
+
+// Merriweather Sans
+// ----------------------------------------------
+
+.merriweathersans,
+[class*="merriweathersans"] {
+  font-family: 'Merriweather Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .font-smoothing;
+}
+
+
+// Icomoon
+// ----------------------------------------------
+
+@font-face {
+  font-family: 'icons';
+  src: url('@{assets}/font/icons.eot');
+  src: url('@{assets}/font/icons.eot?#iefix-f4w6h') format('embedded-opentype'),
+  url('@{assets}/font/icons.woff') format('woff'),
+  url('@{assets}/font/icons.ttf') format('truetype'),
+  url('@{assets}/font/icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon,
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  .font-smoothing;
+}
+
+// Property 'speak' is allowed only in
+// following media groups: speech, aural
+@media speech, aural {
+  .icon,
+  [class^="icon-"],
+  [class*=" icon-"] {
+    speak: none;
+  }
+}
+
+.icon-email:before       { content: "\f0e0" }
+.icon-email-ol:before    { content: "\f003" }
+.icon-email-ol-b:before  { content: "\e602" }
+.icon-phone:before       { content: "\e601" }
+.icon-globe:before       { content: "\f0ac" }
+.icon-camera:before      { content: "\f030" }
+.icon-link:before        { content: "\e61a" }
+.icon-close:before       { content: "\e604" }
+.icon-menu:before        { content: "\e605" }
+.icon-play:before        { content: "\e606" }
+.icon-pause:before       { content: "\e607" }
+.icon-next:before        { content: "\e608" }
+.icon-prev:before        { content: "\e609" }
+.icon-first:before       { content: "\e60a" }
+.icon-last:before        { content: "\e60b" }
+.icon-up:before          { content: "\e612" }
+.icon-right:before       { content: "\e613" }
+.icon-down:before        { content: "\e611" }
+.icon-left:before        { content: "\e610" }
+.icon-up-sm:before       { content: "\e60e" }
+.icon-right-sm:before    { content: "\e60f" }
+.icon-down-sm:before     { content: "\e60d" }
+.icon-left-sm:before     { content: "\e60c" }
+.icon-thumbs:before      { content: "\e600" }
+.icon-rss:before         { content: "\e603" }
+.icon-vimeo:before       { content: "\e614" }
+.icon-twitter:before     { content: "\e615" }
+.icon-facebook:before    { content: "\e616" }
+.icon-gplus:before       { content: "\e617" }
+.icon-pinterest:before   { content: "\e618" }
+.icon-instagram:before   { content: "\e619" }
+
+
+// 8 Definitive Web Font Stacks by Michael Tuck
+// ----------------------------------------------
+//
+// http://www.sitepoint.com/article/eight-definitive-font-stacks
+// Copyright SitePoint 2008
+
+// Times New Roman-based stack
+@times: Cambria,
+  'Hoefler Text',
+  Utopia,
+  'Liberation Serif',
+  'Nimbus Roman No9 L Regular',
+  Times,
+  'Times New Roman',
+  serif;
+
+// Modern Georgia-based serif stack
+@georgia: Constantia,
+  'Lucida Bright',
+  Lucidabright,
+  'Lucida Serif',
+  Lucida,
+  'DejaVu Serif',
+  'Bitstream Vera Serif',
+  'Liberation Serif',
+  Georgia,
+  serif;
+
+// Traditional Garamond-based serif stack
+@garamond: 'Palatino Linotype',
+  Palatino,
+  Palladio,
+  'URW Palladio L',
+  'Book Antiqua',
+  Baskerville,
+  'Bookman Old Style',
+  'Bitstream Charter',
+  'Nimbus Roman No9 L',
+  Garamond,
+  'Apple Garamond',
+  'ITC Garamond Narrow',
+  'New Century Schoolbook',
+  'Century Schoolbook',
+  'Century Schoolbook L',
+  Georgia,
+  serif;
+
+// Helvetica/Arial-based sans serif stack
+@arial: Frutiger,
+  'Frutiger Linotype',
+  Univers, Calibri,
+  'Gill Sans',
+  'Gill Sans MT',
+  'Myriad Pro',
+  Myriad,
+  'DejaVu Sans Condensed',
+  'Liberation Sans',
+  'Nimbus Sans L',
+  Tahoma,
+  Geneva,
+  'Helvetica Neue',
+  Helvetica,
+  Arial,
+  sans-serif;
+
+// Narrow/condensed sans serif stack
+@narrow: 'Gill Sans Condensed',
+  'Liberation Sans Narrow',
+  'Helvetica Narrow',
+  'Arial Narrow',
+  Tahoma,
+  Helvetica,
+  Arial,
+  sans-serif;
+
+// Verdana-based sans serif stack
+@verdana: Corbel,
+  'Lucida Grande',
+  'Lucida Sans Unicode',
+  'Lucida Sans',
+  'DejaVu Sans',
+  'Bitstream Vera Sans',
+  'Liberation Sans',
+  Verdana,
+  'Verdana Ref',
+  sans-serif;
+
+// Trebuchet-based sans serif stack
+@trebuchet: 'Segoe UI',
+  Candara,
+  'Bitstream Vera Sans',
+  'DejaVu Sans',
+  'Bitstream Vera Sans',
+  'Trebuchet MS',
+  Verdana,
+  'Verdana Ref',
+  sans-serif;
+
+// Impact-based sans serif stack
+@impact: Impact,
+  Haettenschweiler,
+  'Franklin Gothic Bold',
+  Charcoal,
+  'Helvetica Inserat',
+  'Bitstream Vera Sans Bold',
+  'Arial Black',
+  sans-serif;
+
+// Monospace stack
+@monoscape: Consolas,
+  'Andale Mono WT',
+  'Andale Mono',
+  'Lucida Console',
+  'Lucida Sans Typewriter',
+  'DejaVu Sans Mono',
+  'Bitstream Vera Sans Mono',
+  'Liberation Mono',
+  'Nimbus Mono L',
+  Monaco,
+  'Courier New',
+  Courier,
+  monospace;

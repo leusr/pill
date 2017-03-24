@@ -1,0 +1,361 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pillanart Theme\n"
+"POT-Creation-Date: 2014-08-06 09:54+0100\n"
+"PO-Revision-Date: 2014-08-06 09:54+0100\n"
+"Last-Translator: Gyorgy Papp <gyorgy.pap@gmail.com>\n"
+"Language-Team: - <gyorgy.pap@gmail.com>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:11
+msgid "404 – Page not found"
+msgstr "404 – Az oldal nem található"
+
+#: ../404.php:12
+msgid "It looks like nothing was found at this location."
+msgstr "Ezen az URL-en nem található semmilyen tartalom."
+
+#: ../archive-member.php:12 ../functions.php:614 ../functions.php:624
+msgid "Wedding Photographers"
+msgstr "Esküvői fotósok"
+
+#: ../footer.php:15
+msgid "About Pillana(r)t"
+msgstr "A Pillana(r)tról"
+
+#: ../footer.php:17
+msgid ""
+"Pillana(r)t - Hungarian Wedding Photographers was established in December "
+"2007 along professional and ethical principles ten of the most sought after "
+"wedding photographers from Hungary. All former members of the association "
+"assume responsibility for each other and want to show the direction of this "
+"domestic chaos."
+msgstr ""
+"A Pillana(r)t – Magyar Esküvőfotós Szövetséget szakmai és etikai elvek "
+"mentén 2007 decemberében hozták létre tízen a legkeresettebb magyar esküvői "
+"fotográfusok közül. A szövetség mindenkori tagjai felelősséget vállalnak "
+"egymásért és ezzel irányt szeretnének mutatni a hazai káoszban."
+
+#: ../footer.php:23
+msgid "Contact"
+msgstr "Elérhetőségeink"
+
+#: ../footer.php:31 ../header.php:54
+msgid "Pillana(r)t on Facebook"
+msgstr "A Pillana(r)t Facebook oldala"
+
+#: ../footer.php:35
+msgid "Pillana(r)t on Twitter"
+msgstr "A Pillana(r)t Twitter oldala"
+
+#: ../footer.php:47
+msgid "Real Weddings"
+msgstr "Valódi esküvők"
+
+#: ../footer.php:59
+msgid "Recommended links"
+msgstr "Ajánlott linkek"
+
+#: ../footer.php:93
+#, php-format
+msgid ""
+"&#169; Copyright %d. <strong>Pillana(r)t</strong> – Hungarian Wedding "
+"Photographers"
+msgstr ""
+"&#169; Copyright %d. <strong>Pillana(r)t</strong> – Magyar Esküvőfotós "
+"Szövetség"
+
+#: ../footer.php:104
+msgid "Scroll top"
+msgstr "Az oldal tetejére"
+
+#: ../functions.php:63
+msgid "First Page"
+msgstr "Első"
+
+#: ../functions.php:64
+msgid "Previous"
+msgstr "Előző"
+
+#: ../functions.php:65
+msgid "Next Page"
+msgstr "Következő"
+
+#: ../functions.php:66
+msgid "Last"
+msgstr "Utolsó"
+
+#: ../functions.php:67
+#, php-format
+msgid "Page %s / %s"
+msgstr "%s. / %s oldal"
+
+#: ../functions.php:227
+#, php-format
+msgid "Articles from %s"
+msgstr "%s cikkei"
+
+#: ../functions.php:360
+msgid "We recommend this also:"
+msgstr "Ezt a cikket is ajánljuk:"
+
+#: ../functions.php:386
+msgid "Twitter updates"
+msgstr "Twitter frissítések"
+
+#: ../functions.php:423
+msgid "Recent posts"
+msgstr "Legfrissebb cikkek"
+
+#: ../functions.php:588
+msgid "Home"
+msgstr "Kezdőlap"
+
+#: ../functions.php:607
+#, php-format
+msgid "Page %s"
+msgstr "%s. oldal"
+
+#: ../functions.php:634
+#, php-format
+msgid "Posts tagged with <em>%s</em>"
+msgstr "Cikkek <em>%s</em> címkével"
+
+#: ../functions.php:693
+msgid "Share on Facebook"
+msgstr "Megosztás Facebookon"
+
+#: ../functions.php:698
+msgid "Share on Twitter"
+msgstr "Megosztás Twitteren"
+
+#: ../functions.php:703
+msgid "Share on Google+"
+msgstr "Google+ megosztás"
+
+#: ../functions.php:709
+msgid "Pin it on Pinterest"
+msgstr "Megosztás Pinteresten"
+
+#: ../header.php:51
+msgid "Pillana(r)t Start Page"
+msgstr "Pillana(r)t kezdőlap"
+
+#: ../header.php:51
+msgid "Pillana(r)t – Hungarian Wedding Photographers"
+msgstr "Pillana(r)t – Magyar Esküvőfotós Szövetség"
+
+#: ../header.php:55
+msgid "Follow Pillana(r)t on Twitter"
+msgstr "A Pillana(r)t Twitter oldala"
+
+#: ../header.php:56
+msgid "Pillana(r)t is on Google+"
+msgstr "A Pillana(r)t Google+ oldala"
+
+#: ../header.php:57
+msgid "Follow Pillana(r)t on Pinterest"
+msgstr "A Pillana(r)t Pinterest oldala"
+
+#: ../header.php:60
+msgid "Open Menu"
+msgstr "Menü megnyitása"
+
+#: ../includes/helper_scripts.php:59
+msgid "Sometime&#8230;"
+msgstr "Valamikor&#8230;"
+
+#: ../includes/helper_scripts.php:60
+msgid "Right now"
+msgstr "Épp most"
+
+#: ../includes/helper_scripts.php:88
+#, php-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d éve"
+msgstr[1] "%d éve"
+
+#: ../includes/helper_scripts.php:89
+#, php-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d hónapja"
+msgstr[1] "%d hónapja"
+
+#: ../includes/helper_scripts.php:90
+#, php-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d hete"
+msgstr[1] "%d hete"
+
+#: ../includes/helper_scripts.php:91
+#, php-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d napja"
+msgstr[1] "%d napja"
+
+#: ../includes/helper_scripts.php:92
+#, php-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d órája"
+msgstr[1] "%d órája"
+
+#: ../includes/helper_scripts.php:93
+#, php-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d perce"
+msgstr[1] "%d perce"
+
+#: ../includes/init.php:199
+msgid "Top navigation line"
+msgstr "Felső menüsor"
+
+#: ../includes/init.php:200
+msgid "Main navigation"
+msgstr "Főmenü"
+
+#: ../includes/init.php:201
+msgid "Bottom navigation line"
+msgstr "Alsó menüsor"
+
+#: ../includes/init.php:202
+msgid "Mobile navigation"
+msgstr "Mobil menü"
+
+#: ../includes/init.php:241
+msgid "Small 3:2"
+msgstr "Kicsi 3:2"
+
+#: ../includes/init.php:242
+msgid "Medium 3:2"
+msgstr "Közepes 3:2"
+
+#: ../includes/init.php:243
+msgid "Billboard 4:3"
+msgstr "Billboard 4:3"
+
+#: ../includes/init.php:244
+msgid "QSXGA"
+msgstr "QSXGA"
+
+#: ../includes/shortcodes.php:108
+msgid "Portfolio"
+msgstr "Portfólió"
+
+#: ../single-member.php:18 ../single.php:23
+msgid "Share"
+msgstr "Megosztás"
+
+#: ../single-member.php:25
+msgid "Send Request"
+msgstr "Ajánlatkérés"
+
+#: ../single.php:32
+msgid "Tags"
+msgstr "Címkék"
+
+#: ../single.php:38
+msgid "Previous post"
+msgstr "Előző cikk"
+
+#: ../single.php:40
+msgid "Next post"
+msgstr "Következő cikk"
+
+#: ../tag.php:39
+msgid "Tagcloud"
+msgstr "Címkefelhő"
+
+#~ msgid "Visit %s"
+#~ msgstr "%s látogatás"
+
+#, fuzzy
+#~ msgid "Pillana(r)t Page on Facebook"
+#~ msgstr "A Pillana(r)t Facebook oldala"
+
+#~ msgid ""
+#~ "A Pillana(r)t – Magyar Esküvőfotós Szövetséget szakmai és etikai elvek "
+#~ "mentén 2007 decemberében hozták létre tízen a legkeresettebb magyar "
+#~ "esküvői fotográfusok közül. A szövetség mindenkori tagjai felelősséget "
+#~ "vállalnak egymásért és ezzel irányt szeretnének mutatni a hazai káoszban."
+#~ msgstr ""
+#~ "A Pillana(r)t – Magyar Esküvőfotós Szövetséget szakmai és etikai elvek "
+#~ "mentén 2007 decemberében hozták létre tízen a legkeresettebb magyar "
+#~ "esküvői fotográfusok közül. A szövetség mindenkori tagjai felelősséget "
+#~ "vállalnak egymásért és ezzel irányt szeretnének mutatni a hazai káoszban."
+
+#~ msgid "Hungarian Wedding Portal"
+#~ msgstr "Esküvőportál"
+
+#~ msgid "Read this post too:"
+#~ msgstr "Olvasd el ezt is:"
+
+#~ msgid "Featured news:"
+#~ msgstr "Kiemelt hír:"
+
+#~ msgid "Our Photographers"
+#~ msgstr "Fotósaink"
+
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s napja"
+#~ msgstr[1] "%s napja"
+
+#~ msgid "Sidebar"
+#~ msgstr "Oldalsáv"
+
+#~ msgid "Footer Column 1"
+#~ msgstr "Lábléc 3. oszlop"
+
+#~ msgid "Footer Column 2"
+#~ msgstr "Lábléc 2. oszlop"
+
+#~ msgid "Footer Column 3"
+#~ msgstr "Lábléc 1. oszlop"
+
+#~ msgid "Bottom Line"
+#~ msgstr "Alsó sor"
+
+#~ msgid " - Error 404 on the Website"
+#~ msgstr "- 404-es hiba a weboldalon"
+
+#~ msgid "Date"
+#~ msgstr "Dátum"
+
+#~ msgid "Image"
+#~ msgstr "Kép"
+
+#~ msgid "Social Pages"
+#~ msgstr "Közösségi oldalak"
+
+#~ msgid "Full url, e.g.: https://facebook.com/pillanart"
+#~ msgstr "Teljes cím, pl.: https://facebook.com/pillanart"
+
+#~ msgid "Full url, e.g.: https://plus.google.com/118103047823502039409/posts"
+#~ msgstr ""
+#~ "Teljes cím, pl.: https://plus.google.com/118103047823502039409/posts"
+
+#~ msgid "Only username starting with @, e.g.: @pillanart"
+#~ msgstr "Csak a username a @-tól kezdve, pl.: @pillanart"
+
+#~ msgid "Members"
+#~ msgstr "Tagok"
+
+#~ msgid "Member"
+#~ msgstr "Tag"

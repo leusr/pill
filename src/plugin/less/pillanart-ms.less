@@ -1,0 +1,97 @@
+//
+// WordPress new admin boxes styles
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Aug, 2014
+// @revisited: Aug, 2015
+//
+
+
+@import "../../theme/less/_variables";
+@import "../../theme/less/_mixins";
+
+
+// SEO box
+// ------------------------------------------------------
+
+.wrap-seo-box {
+  margin-bottom: 1.25em;
+  &:last-child {
+    margin: 0;
+  }
+  label {
+    display: inline-block;
+    font-weight: 600;
+    padding-bottom: 4px;
+  }
+}
+
+
+// Member data box
+// ------------------------------------------------------
+
+.wrap-member-data {
+  margin-bottom: 1.5em;
+  .cf;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  label {
+    display: inline-block;
+    float: left;
+    width: 20%;
+    padding-top: 7px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    display: inline-block;
+    float: right;
+    width: 78%;
+  }
+
+  .description {
+    display: inline-block;
+    float: right;
+    width: 78%;
+    padding-top: 3px;
+  }
+
+  &.wrap-member_email {
+    margin-bottom: 1em;
+  }
+
+  &.wrap-email_is_public {
+    margin-bottom: 2.5em;
+
+    label {
+      float: none;
+      width: auto;
+      padding: 0;
+      margin-left: 22%;
+    }
+
+    input {
+      display: inline;
+      float: none;
+      width: auto;
+      margin: -2px 7px 0 0;
+    }
+  }
+}
+
+
+// Related Members box
+// ------------------------------------------------------
+
+#related-members .inside {
+  padding-top: 7px;
+}
+
+.wrap-related-members label {
+  display: inline-block;
+  padding: 3px 0;
+}

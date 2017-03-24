@@ -1,0 +1,391 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Swift Contact Form\n"
+"POT-Creation-Date: 2014-08-06 12:23+0100\n"
+"PO-Revision-Date: 2014-08-06 12:24+0100\n"
+"Last-Translator: Gyorgy Papp <gyorgy.pap@gmail.com>\n"
+"Language-Team: - <gyorgy.pap@gmail.com>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../forms/contact/fields.php:8 ../forms/wedding_request/fields.php:8
+msgid "Name"
+msgstr "Név"
+
+#: ../forms/contact/fields.php:17 ../forms/wedding_request/fields.php:17
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../forms/contact/fields.php:26 ../forms/wedding_request/fields.php:26
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../forms/contact/fields.php:34
+msgid "Subject"
+msgstr "Tárgy"
+
+#: ../forms/contact/fields.php:41 ../forms/wedding_request/fields.php:51
+msgid "Message"
+msgstr "Üzenet"
+
+#: ../forms/contact/fields.php:49 ../forms/wedding_request/fields.php:59
+msgid "Send a copy to my e-mail address"
+msgstr "Kérek egy másolatot a megadott címemre"
+
+#: ../forms/contact/fields.php:58 ../forms/wedding_request/fields.php:68
+msgid "Please answer the question!"
+msgstr "Kérlek, írd be az eredményt!"
+
+#: ../forms/contact/fields.php:65 ../forms/wedding_request/fields.php:75
+msgid "Send"
+msgstr "Küldés"
+
+#: ../forms/contact/messages.php:4 ../forms/wedding_request/messages.php:4
+msgid "Required field"
+msgstr "Kötelező mező"
+
+#: ../forms/contact/messages.php:5 ../forms/wedding_request/messages.php:5
+msgid "Invalid email"
+msgstr "Érvénytelen email"
+
+#: ../forms/contact/messages.php:6 ../forms/wedding_request/messages.php:6
+msgid "Not numeric"
+msgstr "Nem szám"
+
+#: ../forms/contact/messages.php:7 ../forms/wedding_request/messages.php:7
+msgid "Too short value"
+msgstr "Túl rövid szöveg"
+
+#: ../forms/contact/messages.php:8 ../forms/wedding_request/messages.php:8
+msgid "Too long value"
+msgstr "Túl hosszú szöveg"
+
+#: ../forms/contact/messages.php:9 ../forms/wedding_request/messages.php:9
+msgid "Wrong answer"
+msgstr "Rossz válasz"
+
+#: ../forms/contact/messages.php:10 ../forms/wedding_request/messages.php:10
+msgid "Something went wrong. :("
+msgstr "Valami nem jó. :("
+
+#: ../forms/contact/messages.php:13
+msgid "Message sent, thanks. :) We will respond shortly!"
+msgstr "Üzenet elküldve, köszönjük. :) Hamarosan reagálunk!"
+
+#: ../forms/wedding_request/fields.php:34
+msgid "Wedding date"
+msgstr "Esküvő dátuma"
+
+#: ../forms/wedding_request/fields.php:43
+msgid "Wedding location"
+msgstr "Esküvő helye"
+
+#: ../forms/wedding_request/messages.php:13
+msgid "Message sent, thanks. :) I will respond as soon as possible!"
+msgstr "Üzenet elküldve, köszönöm. :) Hamarosan reagálok!"
+
+#: ../swift-contact-form.class.php:211
+msgid ""
+"<strong>This form requires JavaScript.</strong><br>Please allow JavaScript "
+"on this page! No malicious code here, promise."
+msgstr ""
+"<strong>A form csak JavaScripttel működik.</strong><br>Kérlek engedélyezd a "
+"scripteket ezen az oldalon. Esküszünk, hogy semmilyen rosszindulatú kódot "
+"nem futtatunk."
+
+#: ../swift-contact-form.class.php:361
+msgid "Pillana(r)t Contact Message"
+msgstr "Pillana(r)t üzenet a Kapcsolat oldalról"
+
+#: ../swift-contact-form.class.php:366
+msgid "Pillana(r)t Wedding Request"
+msgstr "Pillana(r)t ajánlatkérés"
+
+#: ../swift-contact-form.class.php:474
+#, php-format
+msgid "Message sent from %s by %s form."
+msgstr "Ez az üzenet a %s-ról jött a %s formon keresztül."
+
+#: ../swift-contact-form.class.php:475
+#, php-format
+msgid "This is a copy of your message sent from %s by %s form."
+msgstr "Ez egy másolat, amit a %s-on küldtél a %s formmal."
+
+#~ msgid "Wedding venue"
+#~ msgstr "Találkozó helye"
+
+#~ msgid "Internal error, sorry for that. :("
+#~ msgstr "Szerverhiba van, nagyon sajnáljuk. :("
+
+#~ msgid "(No subject)"
+#~ msgstr "(Nincs tárgy)"
+
+#, fuzzy
+#~ msgid "No subject"
+#~ msgstr "Tárgy"
+
+#~ msgid ""
+#~ "The server is currently unavailable. We are really sorry for that. :("
+#~ msgstr "A szerver átmenetileg nem működik. Nagyon sajnáljuk, komolyan. :("
+
+#~ msgid " - Error 404 on the Website"
+#~ msgstr "- 404-es hiba a weboldalon"
+
+#~ msgid "Date"
+#~ msgstr "Dátum"
+
+#~ msgid "Search engine optimization"
+#~ msgstr "Keresőoptimalizálás"
+
+#~ msgid "HTML title"
+#~ msgstr "HTML title"
+
+#~ msgid "META description"
+#~ msgstr "META description"
+
+#~ msgid "Member data"
+#~ msgstr "Tag adatai"
+
+#~ msgid "Contact form sends emails to this address."
+#~ msgstr "A Contact form erre a címre küldi a maileket."
+
+#~ msgid "E-mail visible on website"
+#~ msgstr "Az e-mail cím megjelenhet az oldalon is"
+
+#~ msgid "Phone number(s)"
+#~ msgstr "Telefonszám(ok)"
+
+#~ msgid "One phone number per line"
+#~ msgstr "Egy telefonszám soronként"
+
+#~ msgid "Website(s)"
+#~ msgstr "Honlap(ok)"
+
+#~ msgid "One url per line"
+#~ msgstr "Egy url soronként"
+
+#~ msgid "Facebook profile"
+#~ msgstr "Facebook profil"
+
+#~ msgid "Profile (or page) full url, e.g.: https://facebook.com/pillanart"
+#~ msgstr ""
+#~ "Profil (vagy oldal) teljes címe, pl.: https://facebook.com/pillanart"
+
+#~ msgid "Google+ profile"
+#~ msgstr "Google+ profil"
+
+#~ msgid "Full url, e.g.: https://plus.google.com/118103047823502039409/posts"
+#~ msgstr ""
+#~ "Teljes cím, pl.: https://plus.google.com/118103047823502039409/posts"
+
+#~ msgid "Twitter username"
+#~ msgstr "Twitter username"
+
+#~ msgid "Only username starting with @, e.g.: @pillanart"
+#~ msgstr "Csak a username a @-tól kezdve, pl.: @pillanart"
+
+#~ msgid "Related Members"
+#~ msgstr "Kapcsolódó tagok"
+
+#~ msgid "This post will displayed in selected members page."
+#~ msgstr "Ez a bejegyzés a megadott tag(ok) oldalán szerepelni fog."
+
+#~ msgid "(not set)"
+#~ msgstr "(nincs)"
+
+#~ msgid "All Members"
+#~ msgstr "Összes tag"
+
+#~ msgid "Latest Posts with Thumbnails"
+#~ msgstr "Legfrissebb bejegyzések kiemelt képpel"
+
+#~ msgid "Title:"
+#~ msgstr "Cím:"
+
+#~ msgid "Number of posts to show:"
+#~ msgstr "Ennyi bejegyzés jelenjen meg:"
+
+#~ msgid "From category:"
+#~ msgstr "Ebből a kategóriából:"
+
+#~ msgid "All categories"
+#~ msgstr "Minden kategória"
+
+#~ msgid "Image"
+#~ msgstr "Kép"
+
+#~ msgid "Social Pages"
+#~ msgstr "Közösségi oldalak"
+
+#~ msgid "Full url, e.g.: https://facebook.com/pillanart"
+#~ msgstr ""
+#~ "Profil (vagy oldal) teljes címe, pl.: https://facebook.com/pillanart"
+
+#~ msgctxt "post type general name"
+#~ msgid "Members"
+#~ msgstr "Tagok"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Member"
+#~ msgstr "Tag"
+
+#~ msgctxt "admin menu"
+#~ msgid "Members"
+#~ msgstr "Tagok"
+
+#~ msgctxt "add new on admin bar"
+#~ msgid "Member"
+#~ msgstr "Tag"
+
+#~ msgctxt "member"
+#~ msgid "Add New"
+#~ msgstr "Új tag"
+
+#~ msgid "Add New Member"
+#~ msgstr "Új tag felvétele"
+
+#~ msgid "New Member"
+#~ msgstr "Új tag"
+
+#~ msgid "Edit Member"
+#~ msgstr "Szerkesztés"
+
+#~ msgid "View Member"
+#~ msgstr "Tag profiloldala"
+
+#~ msgid "Search Members"
+#~ msgstr "Tagok keresése"
+
+#~ msgid "No member found."
+#~ msgstr "Nem találhatóak tagok."
+
+#~ msgid "No member found in Trash."
+#~ msgstr "Egy tag se található a kukában."
+
+#~ msgctxt "post type general name"
+#~ msgid "Partners"
+#~ msgstr "Partnerek"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgctxt "admin menu"
+#~ msgid "Partners"
+#~ msgstr "Partnerek"
+
+#~ msgctxt "add new on admin bar"
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgctxt "partner"
+#~ msgid "Add New"
+#~ msgstr "Új partner"
+
+#~ msgid "Add New Partner"
+#~ msgstr "Új partner felvétele"
+
+#~ msgid "New Partner"
+#~ msgstr "Új partner"
+
+#~ msgid "Edit Partner"
+#~ msgstr "Szerkesztés"
+
+#~ msgid "View Partner"
+#~ msgstr "Partner profiloldala"
+
+#~ msgid "All Partners"
+#~ msgstr "Összes partner"
+
+#~ msgid "Search Partners"
+#~ msgstr "Partnerek keresése"
+
+#~ msgid "No partner found."
+#~ msgstr "Nem található partner."
+
+#~ msgid "No partner found in Trash."
+#~ msgstr "Egy partner se található a kukában."
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Services"
+#~ msgstr "Szolgáltatások"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Service"
+#~ msgstr "Szolgáltatás"
+
+#~ msgid "All Services"
+#~ msgstr "Minden szolgáltatás"
+
+#~ msgid "Parent Service"
+#~ msgstr "Szülő-szolgáltatás"
+
+#~ msgid "Parent Service:"
+#~ msgstr "Szülő-szolgáltatás"
+
+#~ msgid "Edit Service"
+#~ msgstr "Szerkesztés"
+
+#~ msgid "Update Service"
+#~ msgstr "Szolgáltatás frissítése"
+
+#~ msgid "Add New Service"
+#~ msgstr "Új szolgáltatás felvétele"
+
+#~ msgid "New Service Name"
+#~ msgstr "Új szolgáltatás név"
+
+#~ msgid "Service"
+#~ msgstr "Szolgáltatás"
+
+#~ msgid "Search Service"
+#~ msgstr "Szolgáltatás keresése"
+
+#~ msgid "No service found."
+#~ msgstr "Nem található szolgáltatás."
+
+#~ msgid "Page %s"
+#~ msgstr "%s. oldal"
+
+#~ msgctxt "Admin menu"
+#~ msgid "Members"
+#~ msgstr "Tagok"
+
+#~ msgctxt "Add new on admin bar"
+#~ msgid "Member"
+#~ msgstr "Tag"
+
+#~ msgid "Custom Post Type Archives"
+#~ msgstr "Egyedi post típusok listaoldalai"
+
+#~ msgid "Add to Menu"
+#~ msgstr "Hozzáadás"
+
+#~ msgid "Meta tags"
+#~ msgstr "Meta tagek"
+
+#~ msgid "Google+ author link"
+#~ msgstr "A szerző Google+ oldala"
+
+#~ msgid ""
+#~ "If post author not filled up this on profile page,<br>or post author is "
+#~ "different than the post talking about."
+#~ msgstr ""
+#~ "Ha a bejegyzés szerzője nem töltötte ki a profil oldalán,<br>vagy a "
+#~ "szerző nem ugyanaz, mint a bejegyzés szerzője."
+
+#~ msgid "Error: ID is required!"
+#~ msgstr "Hiba: az ID kötelező!"
+
+#~ msgid " error: ID and options is required!"
+#~ msgstr "Hiba: ID és options kötelező!"

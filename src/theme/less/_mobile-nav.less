@@ -1,0 +1,57 @@
+//
+// Mobile menu
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Aug, 2014
+// @revisited: Aug, 2015
+//
+
+
+.mobile-nav-list {
+  // display: none;
+  position: absolute;
+  // top: 65px;
+  top: -300px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: top 0.6s ease;
+  &.nav-opened {
+    top: 65px;
+    bottom: auto;
+  }
+  a,
+  span {
+    .cf;
+    display: block;
+    color: #e7e7e7;
+    cursor: pointer;
+    padding: 0 3% 0 5%;
+    height: 40px;
+    .ftitle(18px);
+    line-height: 40px;
+    background-color: #171717;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #111;
+    &:hover {
+      background-color: #222;
+      border-bottom: 1px solid #111;
+    }
+    i {
+      .fr;
+      font-size: 20px;
+      line-height: 40px;
+      color: @paOrange;
+    }
+  }
+  .current-menu-item,
+  .current-menu-ancestor {
+    & > a,
+    & > span {
+      color: @paOrange;
+    }
+  }
+  ul {
+    display: none;
+  }
+}

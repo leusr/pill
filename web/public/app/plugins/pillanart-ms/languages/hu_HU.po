@@ -1,0 +1,397 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pillanart Site Plugin\n"
+"POT-Creation-Date: 2014-08-06 12:23+0100\n"
+"PO-Revision-Date: 2014-08-06 12:23+0100\n"
+"Last-Translator: Gyorgy Papp <gyorgy.pap@gmail.com>\n"
+"Language-Team: - <gyorgy.pap@gmail.com>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../environment/production.php:37
+msgid " - Error 404 on the Website"
+msgstr "- 404-es hiba a weboldalon"
+
+#: ../environment/production.php:41
+msgid "Date"
+msgstr "Dátum"
+
+#: ../pillanart-site-plugin-admin.class.php:108
+msgid "Image"
+msgstr "Kép"
+
+#: ../pillanart-site-plugin-admin.class.php:150
+msgid "Social Pages"
+msgstr "Közösségi oldalak"
+
+#: ../pillanart-site-plugin-admin.class.php:156
+msgid "Full url, e.g.: https://facebook.com/pillanart"
+msgstr "Profil (vagy oldal) teljes címe, pl.: https://facebook.com/pillanart"
+
+#: ../pillanart-site-plugin-admin.class.php:164
+#: ../pillanart-site-plugin-admin.class.php:344
+msgid "Full url, e.g.: https://plus.google.com/118103047823502039409/posts"
+msgstr "Teljes cím, pl.: https://plus.google.com/118103047823502039409/posts"
+
+#: ../pillanart-site-plugin-admin.class.php:171
+#: ../pillanart-site-plugin-admin.class.php:352
+msgid "Only username starting with @, e.g.: @pillanart"
+msgstr "Csak a username a @-tól kezdve, pl.: @pillanart"
+
+#: ../pillanart-site-plugin-admin.class.php:261
+msgid "Search engine optimization"
+msgstr "Keresőoptimalizálás"
+
+#: ../pillanart-site-plugin-admin.class.php:270
+msgid "HTML title"
+msgstr "HTML title"
+
+#: ../pillanart-site-plugin-admin.class.php:279
+msgid "META description"
+msgstr "META description"
+
+#: ../pillanart-site-plugin-admin.class.php:289
+msgid "Member data"
+msgstr "Tag adatai"
+
+#: ../pillanart-site-plugin-admin.class.php:297
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../pillanart-site-plugin-admin.class.php:298
+msgid "Contact form sends emails to this address."
+msgstr "A Contact form erre a címre küldi a maileket."
+
+#: ../pillanart-site-plugin-admin.class.php:308
+msgid "E-mail visible on website"
+msgstr "Az e-mail cím megjelenhet az oldalon is"
+
+#: ../pillanart-site-plugin-admin.class.php:317
+msgid "Phone number(s)"
+msgstr "Telefonszám(ok)"
+
+#: ../pillanart-site-plugin-admin.class.php:318
+msgid "One phone number per line"
+msgstr "Egy telefonszám soronként"
+
+#: ../pillanart-site-plugin-admin.class.php:326
+msgid "Website(s)"
+msgstr "Honlap(ok)"
+
+#: ../pillanart-site-plugin-admin.class.php:327
+msgid "One url per line"
+msgstr "Egy url soronként"
+
+#: ../pillanart-site-plugin-admin.class.php:335
+msgid "Facebook profile"
+msgstr "Facebook profil"
+
+#: ../pillanart-site-plugin-admin.class.php:336
+msgid "Profile (or page) full url, e.g.: https://facebook.com/pillanart"
+msgstr "Profil (vagy oldal) teljes címe, pl.: https://facebook.com/pillanart"
+
+#: ../pillanart-site-plugin-admin.class.php:343
+msgid "Google+ profile"
+msgstr "Google+ profil"
+
+#: ../pillanart-site-plugin-admin.class.php:351
+msgid "Twitter username"
+msgstr "Twitter username"
+
+#: ../pillanart-site-plugin-admin.class.php:396
+msgid "Related Members"
+msgstr "Kapcsolódó tagok"
+
+#: ../pillanart-site-plugin.class.php:195
+msgctxt "post type general name"
+msgid "Members"
+msgstr "Tagok"
+
+#: ../pillanart-site-plugin.class.php:196
+msgctxt "post type singular name"
+msgid "Member"
+msgstr "Tag"
+
+#: ../pillanart-site-plugin.class.php:197
+msgctxt "admin menu"
+msgid "Members"
+msgstr "Tagok"
+
+#: ../pillanart-site-plugin.class.php:198
+msgctxt "add new on admin bar"
+msgid "Member"
+msgstr "Tag"
+
+#: ../pillanart-site-plugin.class.php:199
+msgctxt "member"
+msgid "Add New"
+msgstr "Új tag"
+
+#: ../pillanart-site-plugin.class.php:200
+msgid "Add New Member"
+msgstr "Új tag felvétele"
+
+#: ../pillanart-site-plugin.class.php:201
+msgid "New Member"
+msgstr "Új tag"
+
+#: ../pillanart-site-plugin.class.php:202
+msgid "Edit Member"
+msgstr "Szerkesztés"
+
+#: ../pillanart-site-plugin.class.php:203
+msgid "View Member"
+msgstr "Tag profiloldala"
+
+#: ../pillanart-site-plugin.class.php:204
+msgid "All Members"
+msgstr "Összes tag"
+
+#: ../pillanart-site-plugin.class.php:205
+msgid "Search Members"
+msgstr "Tagok keresése"
+
+#: ../pillanart-site-plugin.class.php:206
+msgid "No member found."
+msgstr "Nem találhatóak tagok."
+
+#: ../pillanart-site-plugin.class.php:207
+msgid "No member found in Trash."
+msgstr "Egy tag se található a kukában."
+
+#: ../pillanart-site-plugin.class.php:221
+msgctxt "post type general name"
+msgid "Partners"
+msgstr "Partnerek"
+
+#: ../pillanart-site-plugin.class.php:222
+msgctxt "post type singular name"
+msgid "Partner"
+msgstr "Partner"
+
+#: ../pillanart-site-plugin.class.php:223
+msgctxt "admin menu"
+msgid "Partners"
+msgstr "Partnerek"
+
+#: ../pillanart-site-plugin.class.php:224
+msgctxt "add new on admin bar"
+msgid "Partner"
+msgstr "Partner"
+
+#: ../pillanart-site-plugin.class.php:225
+msgctxt "partner"
+msgid "Add New"
+msgstr "Új partner"
+
+#: ../pillanart-site-plugin.class.php:226
+msgid "Add New Partner"
+msgstr "Új partner felvétele"
+
+#: ../pillanart-site-plugin.class.php:227
+msgid "New Partner"
+msgstr "Új partner"
+
+#: ../pillanart-site-plugin.class.php:228
+msgid "Edit Partner"
+msgstr "Szerkesztés"
+
+#: ../pillanart-site-plugin.class.php:229
+msgid "View Partner"
+msgstr "Partner profiloldala"
+
+#: ../pillanart-site-plugin.class.php:230
+msgid "All Partners"
+msgstr "Összes partner"
+
+#: ../pillanart-site-plugin.class.php:231
+msgid "Search Partners"
+msgstr "Partnerek keresése"
+
+#: ../pillanart-site-plugin.class.php:232
+msgid "No partner found."
+msgstr "Nem található partner."
+
+#: ../pillanart-site-plugin.class.php:233
+msgid "No partner found in Trash."
+msgstr "Egy partner se található a kukában."
+
+#: ../pillanart-site-plugin.class.php:248
+msgctxt "taxonomy general name"
+msgid "Services"
+msgstr "Szolgáltatások"
+
+#: ../pillanart-site-plugin.class.php:249
+msgctxt "taxonomy singular name"
+msgid "Service"
+msgstr "Szolgáltatás"
+
+#: ../pillanart-site-plugin.class.php:250
+msgid "All Services"
+msgstr "Minden szolgáltatás"
+
+#: ../pillanart-site-plugin.class.php:251
+msgid "Parent Service"
+msgstr "Szülő-szolgáltatás"
+
+#: ../pillanart-site-plugin.class.php:252
+msgid "Parent Service:"
+msgstr "Szülő-szolgáltatás"
+
+#: ../pillanart-site-plugin.class.php:253
+msgid "Edit Service"
+msgstr "Szerkesztés"
+
+#: ../pillanart-site-plugin.class.php:254
+msgid "Update Service"
+msgstr "Szolgáltatás frissítése"
+
+#: ../pillanart-site-plugin.class.php:255
+msgid "Add New Service"
+msgstr "Új szolgáltatás felvétele"
+
+#: ../pillanart-site-plugin.class.php:256
+msgid "New Service Name"
+msgstr "Új szolgáltatás név"
+
+#: ../pillanart-site-plugin.class.php:257
+msgid "Service"
+msgstr "Szolgáltatás"
+
+#: ../pillanart-site-plugin.class.php:258
+msgid "Search Service"
+msgstr "Szolgáltatás keresése"
+
+#: ../pillanart-site-plugin.class.php:259
+msgid "No service found."
+msgstr "Nem található szolgáltatás."
+
+#: ../pillanart-site-plugin.class.php:312
+#, php-format
+msgid "Page %s"
+msgstr "%s. oldal"
+
+#~ msgid "Pillanart Latest Posts"
+#~ msgstr "Pillanart legfrissebb bejegyzések"
+
+#~ msgid "Latest Posts with Thumbnails"
+#~ msgstr "Legfrissebb bejegyzések kiemelt képpel"
+
+#~ msgid "Title:"
+#~ msgstr "Cím:"
+
+#~ msgid "Number of posts to show:"
+#~ msgstr "Ennyi bejegyzés jelenjen meg:"
+
+#~ msgid "From category:"
+#~ msgstr "Ebből a kategóriából:"
+
+#~ msgid "All categories"
+#~ msgstr "Minden kategória"
+
+#~ msgid "This post will displayed in selected members page."
+#~ msgstr "Ez a bejegyzés a megadott tag(ok) oldalán szerepelni fog."
+
+#~ msgid "(not set)"
+#~ msgstr "(nincs)"
+
+#~ msgid "Name"
+#~ msgstr "Név"
+
+#~ msgid "Phone"
+#~ msgstr "Telefon"
+
+#~ msgid "Subject"
+#~ msgstr "Tárgy"
+
+#~ msgid "Message"
+#~ msgstr "Üzenet"
+
+#~ msgid "Send a copy to my e-mail address"
+#~ msgstr "Kérek egy másolatot a megadott címemre"
+
+#~ msgid "Please answer the question!"
+#~ msgstr "Kérlek, írd be az eredményt!"
+
+#~ msgid "Send"
+#~ msgstr "Küldés"
+
+#~ msgid "Required field"
+#~ msgstr "Kötelező mező"
+
+#~ msgid "Invalid email"
+#~ msgstr "Érvénytelen email"
+
+#~ msgid "Not numeric"
+#~ msgstr "Nem szám"
+
+#~ msgid "Too short value"
+#~ msgstr "Túl rövid szöveg"
+
+#~ msgid "Too long value"
+#~ msgstr "Túl hosszú szöveg"
+
+#~ msgid "Wrong answer"
+#~ msgstr "Rossz válasz"
+
+#~ msgid ""
+#~ "The server is currently unavailable. We are really sorry for that. :("
+#~ msgstr "A szerver átmenetileg nem működik. Nagyon sajnáljuk, komolyan. :("
+
+#~ msgid "Message sent, thanks. We will respond shortly!"
+#~ msgstr "Üzenet elküldve, köszönjük. Hamarosan reagálunk!"
+
+#~ msgid "Wedding date"
+#~ msgstr "Esküvő dátuma"
+
+#~ msgid "Wedding location"
+#~ msgstr "Esküvő helye"
+
+#~ msgid "Wedding venue"
+#~ msgstr "Találkozó helye"
+
+#~ msgid "Message sent, thanks. I will respond as soon as possible!"
+#~ msgstr "Üzenet elküldve, köszönöm. Hamarosan reagálok!"
+
+#~ msgctxt "Admin menu"
+#~ msgid "Members"
+#~ msgstr "Tagok"
+
+#~ msgctxt "Add new on admin bar"
+#~ msgid "Member"
+#~ msgstr "Tag"
+
+#~ msgid "Custom Post Type Archives"
+#~ msgstr "Egyedi post típusok listaoldalai"
+
+#~ msgid "Add to Menu"
+#~ msgstr "Hozzáadás"
+
+#~ msgid "Meta tags"
+#~ msgstr "Meta tagek"
+
+#~ msgid "Google+ author link"
+#~ msgstr "A szerző Google+ oldala"
+
+#~ msgid ""
+#~ "If post author not filled up this on profile page,<br>or post author is "
+#~ "different than the post talking about."
+#~ msgstr ""
+#~ "Ha a bejegyzés szerzője nem töltötte ki a profil oldalán,<br>vagy a "
+#~ "szerző nem ugyanaz, mint a bejegyzés szerzője."
+
+#~ msgid "Error: ID is required!"
+#~ msgstr "Hiba: az ID kötelező!"
+
+#~ msgid " error: ID and options is required!"
+#~ msgstr "Hiba: ID és options kötelező!"

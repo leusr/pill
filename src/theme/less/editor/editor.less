@@ -1,0 +1,256 @@
+//
+// WordPress visual editor styles
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Aug, 2014
+// @revisited: Aug, 2015
+//
+
+
+@import "../_variables";
+@import "../_mixins";
+
+
+// Fonts
+// --------------------------------------------------------------
+
+@import url('http://fonts.googleapis.com/css?family=Oswald:300,400,700|Merriweather+Sans:400,700,400i&subset=latin,latin-ext');
+
+.oswald {
+  font-family: 'Oswald', 'Helvetica Neue', 'Arial Black', Helvetica, Arial, sans-serif;
+  .font-smoothing;
+}
+
+.merriweathersans {
+  font-family: 'Merriweather Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .font-smoothing;
+}
+
+@georgia: Constantia,
+  'Lucida Bright',
+  Lucidabright,
+  'Lucida Serif',
+  Lucida,
+  'DejaVu Serif',
+  'Bitstream Vera Serif',
+  'Liberation Serif',
+  Georgia,
+  serif;
+
+
+// Body
+// --------------------------------------------------------------
+
+html .mceContentBody {
+  font-size: 12px;
+  font-family: 'Merriweather Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  color: #555;
+}
+
+
+// Links
+// --------------------------------------------------------------
+
+a {
+  text-decoration: underline;
+  color: @paOrange;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #555;
+  }
+}
+
+
+// Headings
+// --------------------------------------------------------------
+
+h2, h3, h4, h5, h6 {
+  clear: both;
+  .oswald;
+  color: #333;
+  margin-top: 30px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #333;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  strong {
+    font-weight: 400;
+    padding-bottom: 5px;
+    display: inline-block;
+    border-bottom: 3px solid #333;
+    margin-bottom: -1px;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  strong {
+    font-weight: 400;
+  }
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+h6 {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 15px;
+}
+
+
+// Text elements
+// --------------------------------------------------------------
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+
+ul {
+  list-style: square;
+  margin: 0 0 1.25em 35px;
+  li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 7px;
+  }
+}
+
+ol {
+  list-style: decimal;
+  margin: 0 0 1.25em 35px;
+  padding-left: 3px;
+  li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 4px;
+  }
+}
+
+b, strong {
+  color: #333;
+  font-weight: 700;
+}
+
+i, em {
+  color: #444;
+  font-style: italic;
+}
+
+hr {
+  .cf;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  color: #fff;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 30px 0 40px;
+}
+
+blockquote {
+  margin: 20px 7%;
+  padding: 20px 20px 5px 30px;
+  background-color: #f7f7f7;
+  border-left: 3px solid #ccc;
+  font-family: @georgia;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #444;
+  p {
+    margin-bottom: 15px;
+    font-size: inherit;
+  }
+  p:last-child cite {
+    display: block;
+    text-align: right;
+    .merriweathersans;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #888;
+    margin-top: -5px;
+  }
+}
+
+
+// Images
+// --------------------------------------------------------------
+
+img,
+.wp-caption {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 15px;
+
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.alignleft {
+    .fl;
+    margin-right: 25px;
+  }
+  &.alignright {
+    .fr;
+    margin-left: 25px;
+  }
+
+}
+
+.wp-caption {
+  background-color: #f7f7f7;
+  padding-bottom: 3px;
+  img {
+    margin: 0;
+  }
+  .wp-caption-dd {
+    background-color: #f7f7f7;
+    font-family: @georgia;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.35;
+    padding: 2px 5px;
+    text-align: center;
+  }
+}
+
+.html5-captions .wp-caption {
+  background-color: #f7f7f7 !important;
+  padding-bottom: 3px !important;
+  margin-bottom: 15px !important;
+}

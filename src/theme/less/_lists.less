@@ -1,0 +1,332 @@
+//
+// List-pages and its elements
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Apr-Jul, 2014
+// @revisited: Aug, 2015
+//
+
+
+// Front page
+// --------------------------------------------------------------
+
+.post-exc-sm-list {
+  margin: 40px 0 20px;
+}
+
+
+// Breadcrumbs
+// --------------------------------------------------------------
+
+.breadcrumbs {
+  margin-bottom: 15px;
+  line-height: 1.4;
+  & > span {
+    color: darken(@paGrey, 10%);
+    &:after {
+      .icon;
+      font-size: 8px;
+      content: "\e613";
+      margin: 0 4px 0 6px;
+      position: relative;
+      top: -0.15em;
+    }
+    &:last-child:after {
+      content: "";
+      margin: 0;
+      position: static;
+      .hidden;
+    }
+  }
+  a {
+    color: darken(@paGrey, 10%);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main-title {
+  .ftitle(24px);
+  padding-bottom: 5px;
+  border-bottom: 3px solid #333;
+  margin-bottom: 15px;
+}
+
+
+// Category links
+// --------------------------------------------------------------
+
+.post-cat,
+.post-content .post-cat {
+  span {
+    display: inline-block;
+    margin-right: 3px;
+    a {
+      text-decoration: none;
+      display: block;
+      padding: 2px 4px;
+      .ftitle(12px, 400, uppercase);
+      color: #fff;
+      background-color: @paGrey;
+      transition: opacity 0.3s ease;
+      &:hover {
+        color: #fff;
+        opacity: 0.8;
+        text-decoration: none;
+      }
+    }
+    // Pároknak, For Brides/Grooms
+    &.cat-8 a, &.cat-126 a {
+      background-color: @paOrange;
+    }
+    // Fotográfusoknak
+    &.cat-9 a {
+      background-color: #01c181;
+    }
+    // Valódi esküvők, Real Weddings
+    &.cat-16 a, &.cat-128 a {
+      background-color: #a22;
+    }
+    // Interjúk, Interview
+    &.cat-48 a, &.cat-124 a {
+      background-color: #4dace6;
+    }
+    // Menyasszonyoknak
+    &.cat-57 a {
+      background-color: #c137ac;
+    }
+  }
+}
+
+
+// Author, date
+// --------------------------------------------------------------
+
+.post-meta {
+  .ftitle(12px, 400, uppercase);
+  .author {
+    color: #555;
+    margin-right: 7px;
+    a {
+      color: #555;
+      &:hover {
+        text-decoration: underline
+      }
+    }
+  }
+  time {
+    color: #bbb;
+  }
+}
+
+
+// Post excerpt
+// --------------------------------------------------------------
+
+.post-exc {
+  margin-bottom: 30px;
+  .img-link {
+    .zoomimglnk(290px, auto, 1.05);
+  }
+  .exc-cont {
+    margin-top: 10px;
+    h2 {
+      .ftitle(20px);
+      line-height: 1.1;
+      margin-top: 5px;
+      a {
+        color: #333;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    p {
+      margin: 1em 0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  }
+}
+
+
+// Member excerpt
+// --------------------------------------------------------------
+
+.member-exc {
+  max-width: 260px;
+  margin-bottom: 2em;
+  .img-link {
+    .zoomimglnk(100%, auto, 1.05);
+  }
+  .exc-cont {
+    margin-top: 7px;
+    margin-left: 7px;
+  }
+  h2 {
+    .ftitle(15px, 400, uppercase);
+    line-height: 20px;
+  }
+  .exc-meta {
+    .ftitle(15px, 300);
+    line-height: 17px
+  }
+  a {
+    color: #333;
+    transition: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// Pager
+// --------------------------------------------------------------
+
+.pager-list {
+  margin: 40px 0 20px;
+  .ftitle(12px, 400, uppercase);
+  line-height: 32px;
+  .page-per-total {
+    .fr;
+    color: #777;
+    padding-top: 4px;
+    padding-right: 5px;
+    word-spacing: 3px;
+  }
+  a,
+  span {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  a {
+    color: #777;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #555;
+      border-color: #555;
+    }
+  }
+  span {
+    color: #ccc;
+  }
+  i {
+    font-size: 10px;
+    vertical-align: middle;
+    margin: 0 1px;
+  }
+  .num {
+    width: 32px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid #ccc;
+  }
+  .current-item {
+    color: #fff;
+    background-color: @paOrange;
+    border-color: @paOrange;
+  }
+  .page-per-total,
+  .first,
+  .last {
+    .hidden;
+  }
+}
+
+
+// Tagcloud
+// --------------------------------------------------------------
+
+.tagcloud {
+  margin: 40px 0 30px;
+  h2 {
+    .ftitle(20px, 300, uppercase);
+    line-height: 1.25;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    strong {
+      font-weight: 400;
+      padding-bottom: 5px;
+      display: inline-block;
+      border-bottom: 3px solid #333;
+      margin-bottom: -1px;
+    }
+  }
+  p {
+    line-height: 25px;
+    color: @paGrey;
+    a {
+      transition: color 0.3s ease;
+    }
+  }
+}
+
+
+// Media queries
+// --------------------------------------------------------------
+
+@media ( min-width: @bp-small ) {
+
+  .member-exc {
+    .fl;
+    width: 48.75%;
+    margin-right: 1.25%;
+    &:nth-child( 2n ) {
+      margin-right: 0;
+    }
+  }
+
+  .pager-list {
+    .page-per-total {
+      .display;
+    }
+  }
+
+}
+
+@media ( min-width: @bp-medium ) {
+
+  .post-exc-sm-list {
+    .post-exc-sm {
+      .fl;
+      width: 50%;
+      padding-right: 5%;
+      clear: left;
+      &:nth-child( 2n ) {
+        width: 45%;
+        padding-right: 0;
+        clear: none;
+      }
+    }
+  }
+
+  .post-exc {
+    .img-link {
+      .fl;
+    }
+    .exc-cont {
+      margin-left: 305px;
+    }
+  }
+
+  .member-exc {
+    width: 32.5%;
+    margin-right: 1.25%;
+    &:nth-child( 2n ) {
+      margin-right: 1.25%;
+    }
+    &:nth-child( 3n ) {
+      margin-right: 0;
+    }
+  }
+
+  .pager-list {
+    .first, .last {
+      .display(inline-block);
+    }
+  }
+
+}

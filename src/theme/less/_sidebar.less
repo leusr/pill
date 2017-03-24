@@ -1,0 +1,150 @@
+//
+// Sidebar elements
+//
+// @author: Gyorgy Papp <gyuripp@gmail.com>
+// @created: Apr-Jul, 2014
+// @revisited: Aug, 2015
+//
+
+
+.sidebar > div {
+  margin-bottom: 40px;
+  .block-title {
+    margin-bottom: 20px;
+    .ftitle(20px, 300, uppercase);
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    strong {
+      display: inline-block;
+      font-weight: 400;
+      border-bottom: 3px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+
+// Billboard
+// --------------------------------------------------------------
+
+.billboard {
+  position: relative;
+  overflow: hidden;
+  .img-link {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+    overflow: hidden;
+    img {
+      .zoomimg(100%, auto);
+    }
+  }
+  &:hover .img-link img {
+    .zoomimghover(1.05);
+  }
+  .billboard-cont {
+    width: 100%;
+    padding: 30px 10px 10px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85) 85%);
+    h2 {
+      .ftitle(22px, 300);
+      line-height: 1.15;
+      strong {
+        font-weight: 400;
+      }
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+// Latest tweets
+// --------------------------------------------------------------
+
+.twitter-updates ul {
+  li {
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    a {
+      color: @paOrange;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #333;
+      }
+      &.author {
+        font-weight: 700;
+        color: #333;
+        text-decoration: none;
+        transition: none;
+        padding-right: 5px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    time {
+      display: block;
+      margin-top: 5px;
+      .ftitle(12px);
+      color: #bbb;
+    }
+  }
+}
+
+
+// Post excerpt small
+// --------------------------------------------------------------
+
+.post-exc-sm {
+  margin-bottom: 25px;
+  .img-link {
+    .fl;
+    .zoomimglnk(90px, 60px, 1);
+  }
+  .exc-cont {
+    padding-left: 103px;
+    h2 {
+      .ftitle(17px);
+      line-height: 1.25;
+      margin: 3px 0 5px;
+      a {
+        color: #333;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media ( min-width: @bp-normal ) {
+
+  .billboard {
+    width: 100%;
+    .billboard-cont h2 {
+      font-size: 24px;
+    }
+  }
+
+}
+
+@media ( min-width: @bp-large ) {
+
+  .billboard {
+    width: 340px;
+    .billboard-cont h2 {
+      font-size: 26px;
+    }
+  }
+
+}

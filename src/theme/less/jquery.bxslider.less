@@ -1,0 +1,81 @@
+//
+// BxSlider
+//
+// @version: 4.1.2
+// @homepage: http://bxslider.com
+// @author: Steven Wanderski
+// @url: http://stevenwanderski.com
+//
+
+
+// Wrapper
+// --------------------------------------------------------------
+
+.bx-wrapper {
+  position: relative;
+}
+
+
+// Theme
+// --------------------------------------------------------------
+
+.bx-viewport {
+  transform: translatez(0);
+}
+
+.bx-loading {
+  min-height: 50px;
+  background: url('@{assets}/img/bx-loader.gif') center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+.bx-controls-direction {
+  a {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    width: 35px;
+    height: 60px;
+    z-index: 80;
+    outline: 0;
+    background-color: #777;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    &:hover {
+      width: 40px;
+      opacity: 0.8;
+    }
+    &.disabled {
+      display: none;
+    }
+    &.bx-prev {
+      left: 0;
+    }
+    &.bx-next {
+      right: 0;
+    }
+    // Icons
+    span {
+      display: block;
+      font-size: 24px;
+      line-height: 60px;
+      color: #eee;
+      &:hover {
+        color: #fff;
+      }
+    }
+    &.bx-prev span {
+      text-align: right;
+      padding-right: 5px;
+    }
+    &.bx-next span {
+      padding-left: 5px;
+    }
+  }
+}
