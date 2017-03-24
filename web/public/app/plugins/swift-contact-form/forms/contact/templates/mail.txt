@@ -3,6 +3,8 @@
 {from_name_label}: {from_name}
 {from_email_label}: {from_email}
 {phone_label}: {phone}
+{location_label}: {location}
+{duration_label}: {duration}
 
 {message_label}:
 
