@@ -7,6 +7,8 @@ define( 'THEME_ASSETS_BASEURL', home_url( '/assets/' ) );
 
 class Pillanart {
 
+	protected $theme_version = null;
+
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'content_width' ], 0 );
 		add_action( 'after_setup_theme', [ $this, 'theme_setup' ], 0 );
@@ -149,21 +151,17 @@ class Pillanart {
 	}
 
 	/**
-	 * Save theme version to database, and return with it.
+	 * Get theme version.
 	 *
 	 * @return string
 	 */
 	public function theme_version() {
-		if ( ! $theme_version = get_option( 'theme_version' ) ) {
-			// Set up option if not exists
+		if ( ! isset( $this->theme_version ) ) {
 			$theme = wp_get_theme();
-			$theme_version = $theme->get( 'Version' );
-
-			// In WP-Universe update_option is the "best practice" of add_option...
-			update_option( 'theme_version', $theme_version, true );
+			$this->theme_version = $theme->get( 'Version' );
 		}
 
-		return $theme_version;
+		return $this->theme_version;
 	}
 
 	/**

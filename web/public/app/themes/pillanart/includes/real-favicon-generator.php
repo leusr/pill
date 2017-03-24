@@ -104,10 +104,11 @@ class Real_Favicon_Generator {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->theme_version = get_option( 'theme_version' );
+		$theme = wp_get_theme();
+		$this->theme_version = $theme->get( 'Version' );
 		$this->url_base = parse_url( THEME_ASSETS_BASEURL, PHP_URL_PATH ) . $this->dir;
 
-		$sfc = new SFC( 'favicons', DAY_IN_SECONDS, true, $this->version_compare() ); if ( $sfc->off ) {
+		$sfc = new SFC( 'favicons', DAY_IN_SECONDS, true, $this->is_theme_changed() ); if ( $sfc->off ) {
 			$this->create_html();
 			$this->create_manifest_json();
 			$this->create_browserconfig_xml();
@@ -119,10 +120,10 @@ class Real_Favicon_Generator {
 	/**
 	 * Check theme version changes.
 	 *
-	 * @return bool Returns true if theme is the same.
+	 * @return bool
 	 */
-	private function version_compare() {
-		return $this->theme_version === get_option( 'theme_prev_version' );
+	private function is_theme_changed() {
+		return $this->theme_version !== get_option( 'theme_prev_version' );
 	}
 
 	/**
