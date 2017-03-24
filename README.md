@@ -1,3 +1,3 @@
-# random.tld
+# pill
 
 Just another test.
