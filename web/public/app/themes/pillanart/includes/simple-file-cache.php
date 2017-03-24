@@ -29,30 +29,18 @@ class SFC {
 	 */
 	public $off = false;
 
-	/**
-	 * @var string Cache directory.
-	 */
+
+	/** @var string Cache directory. */
 	private $cache_dir;
-
-	/**
-	 * @var string Cache file path.
-	 */
+	/** @var string Cache file path. */
 	private $file;
-
-	/**
-	 * @var int Expire in seconds.
-	 */
+	/** @var int Expire in seconds. */
 	private $expire;
-
-	/**
-	 * @var bool Enable caching for logged in users?
-	 */
+	/** @var bool Enable caching for logged in users? */
 	private $logged_in_users;
-
-	/**
-	 * @var bool|string The output.
-	 */
+	/** @var bool|string The output. */
 	private $output = false;
+
 
 	/**
 	 * Start the block.
@@ -76,7 +64,7 @@ class SFC {
 			mkdir( $this->cache_dir, 0770 );
 		}
 
-		$this->file = $this->cache_dir . '/' . md5( $name ) . '.html';
+		$this->file = $this->cache_dir . '/' . $name . '_' . substr( md5( $name ), 2, 16) . '.html';
 		$this->expire = $expire;
 
 		if ( true === $regen || false === $this->output = $this->get_cache() ) {
@@ -131,10 +119,10 @@ class SFC {
 		];
 
 		if ( class_exists( 'Compress_HTML' ) ) {
-			// Minify HTML plugin disabled, but Compress_HTML class already loaded
+			// Minify HTML plugin disabled, but the class already loaded
 			$html = Compress_HTML::minify( $html, $options );
 		} else {
-			// Try to load Compress_HTML class manually
+			// Try to load the class manually
 			$path = realpath( WP_PLUGIN_DIR . '/minify-html-ascii-art/Compress_HTML.php' );
 			if ( false !== $path ) {
 				include_once $path;
