@@ -4,7 +4,7 @@
 Plugin Name:   Swift Contact Form
 Description:   Fast and secure SPAM protected contact form with HTML and text emails.
 Version:       1.1.0
-Author:        György Papp
+Author:        Gyorgy Papp
 Text Domain:   swift-contact-form
 Domain Path:   /languages
 */

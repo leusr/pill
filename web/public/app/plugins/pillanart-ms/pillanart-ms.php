@@ -4,7 +4,7 @@ Plugin Name:   Pillana(r)t Members and SEO
 Plugin URI:
 Description:   Handles members post type, member-related meta boxes and search engine optimization.
 Version:       2.0.0
-Author:        György Papp
+Author:        Gyorgy Papp
 Author URI:
 Text Domain:   pillanart-ms
 Domain Path:   /languages

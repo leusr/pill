@@ -4,7 +4,7 @@ Plugin Name:    Minify HTML and ASCII Art
 Plugin URI:
 Description:    Quick and dirty on-the-fly HTML compression with nice ASCII art based on Minify project's <a href="https://github.com/mrclay/minify/blob/master/lib/Minify/HTML.php" target="_blank">Minify_HTML</a> class written by Stephen Clay.
 Version:        1.0.0
-Author:         György Papp
+Author:         Gyorgy Papp
 Author URI:
 License:        WTFPL
 License URI:    http://www.wtfpl.net/txt/copying/

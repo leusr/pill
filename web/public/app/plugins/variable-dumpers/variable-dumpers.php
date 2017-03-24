@@ -4,7 +4,7 @@ Plugin Name:   Variable dumpers
 Plugin URI:
 Description:   Everyones all time favirote debug helpers: <code>pr()</code> = formatted <pre>print_r()</pre>, <code>vd()</code> = formatted <pre>var_dump()</pre>. <code>prc()</code> and <code>vdc()</code> drops the variables to html comment.
 Version:       0.1.0
-Author:        György Papp
+Author:        Gyorgy Papp
 Author URI:
 
 License:       WTFPL License

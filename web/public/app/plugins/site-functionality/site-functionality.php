@@ -4,7 +4,7 @@ Plugin Name:   Site Functionality Plugin
 Plugin URI:
 Description:   Custom functionality plugin for pillanart.hu
 Version:       1.5.0
-Author:        György Papp
+Author:        Gyorgy Papp
 Author URI:
 Text Domain:   site-functionality-plugin
 Domain Path:   /languages
