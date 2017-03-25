@@ -1,7 +1,6 @@
 <?php
 
 class Swift_contact_form {
-
 	/** @var array Contain data about sender */
 	private $users;
 	/** @var array Registered forms */
@@ -14,13 +13,11 @@ class Swift_contact_form {
 	private $messages;
 	/** @var array Fields of the form */
 	private $fields;
-
 	/** @var string|null Text and html email templates */
-    private $tpl_mail_txt = null;
-    private $tpl_copy_txt = null;
-    private $tpl_mail_htm = null;
-    private $tpl_copy_htm = null;
-
+	private $tpl_mail_txt = null;
+	private $tpl_copy_txt = null;
+	private $tpl_mail_htm = null;
+	private $tpl_copy_htm = null;
 	/** @var string User fingerprint generated from $_SERVER */
 	private $fprint;
 	/** @var Form_helper object */
@@ -40,30 +37,29 @@ class Swift_contact_form {
 	/** @var string Email subject */
 	private $subject;
 
-
 	/**
-     * Constructor.
-     */
-    public function __construct() {
+	 * Constructor.
+	 */
+	public function __construct() {
 		// Load or create users array
 		if ( false === ( $this->users = get_transient( 'scf-users' ) ) ) {
 			$this->users = [];
 		}
 
-        // Set localization
+		// Set localization
 		$this->load_plugin_textdomain();
 
 		// Save start time
-        $this->mtime = microtime( true );
+		$this->mtime = microtime( true );
 
-        // Create fingerprint
+		// Create fingerprint
 		$this->fprint = $this->create_fingerprint();
 
-        // General switch between post and form view
-        if ( isset( $_POST['form_slug'] ) ) {
-            $this->form_post();
+		// General switch between post and form view
+		if ( isset( $_POST['form_slug'] ) ) {
+			$this->form_post();
 		} else {
-            $this->hello_user();
+			$this->hello_user();
 		}
 	}
 
@@ -76,59 +72,60 @@ class Swift_contact_form {
 		load_textdomain( $domain, plugin_dir_path( __FILE__ ) . 'languages/' . $locale . '.mo' );
 	}
 
-    /**
-     * Set current form data
+	/**
+	 * Set current form data
 	 *
-     * @param string $form_slug Directory name of formdata
-     * @param int    $post_id   WordPress post ID
-     */
-    public function set_form( $form_slug, $post_id ) {
+	 * @param string $form_slug Directory name of formdata
+	 * @param int    $post_id   WordPress post ID
+	 */
+	public function set_form( $form_slug, $post_id ) {
 		// Invalid call, abort without any output
 		if ( ! in_array( $form_slug, $this->forms ) ) {
 			$this->abort();
 		}
 
-        $formdir = dirname( __FILE__ ) . '/forms/' . $form_slug;
+		$formdir = dirname( __FILE__ ) . '/forms/' . $form_slug;
 		if ( ! is_dir( $formdir ) ) {
 			$this->abort( $form_slug . ' setup error. <strong>' . $form_slug . '</strong> not exists.' );
 		}
 
-        $paths = [
-            'messages'     => $formdir . '/messages.php',
-            'fields'       => $formdir . '/fields.php',
-            'tpl_mail_txt' => $formdir . '/templates/mail.txt',
-            'tpl_copy_txt' => $formdir . '/templates/copy.txt'
-        ];
+		$paths = [
+			'messages'     => $formdir . '/messages.php',
+			'fields'       => $formdir . '/fields.php',
+			'tpl_mail_txt' => $formdir . '/templates/mail.txt',
+			'tpl_copy_txt' => $formdir . '/templates/copy.txt',
+		];
 
-        foreach ( $paths as $param => $path ) {
-            if ( ! is_file( $path ) ) {
-                $this->abort( $form_slug . ' setup error. <strong>' . substr( $path, strrpos( $path, '/' ) ) . '</strong> not exists.' );
-            } else {
+		foreach ( $paths as $param => $path ) {
+			if ( ! is_file( $path ) ) {
+				$this->abort( $form_slug . ' setup error. <strong>' . substr( $path, strrpos( $path, '/' ) )
+				              . '</strong> not exists.' );
+			} else {
 				// Include messages and fields, save template pathes
-                $this->$param = ( false === strpos( $param, 'tpl' ) ) ? include $path : $path;
-            }
-        }
-
-        // Html email templates (optional)
-        $paths = [
-            'tpl_mail_htm' => $formdir . '/templates/mail.htm',
-            'tpl_copy_htm' => $formdir . '/templates/copy.htm',
-        ];
-
-        foreach( $paths as $param => $path ) {
-            if ( is_file( $path ) ) {
-                $this->$param = $path;
-            }
+				$this->$param = ( false === strpos( $param, 'tpl' ) ) ? include $path : $path;
+			}
 		}
 
-        $this->form_slug = $form_slug;
-		$this->post_id = $post_id;
-    }
+		// Html email templates (optional)
+		$paths = [
+			'tpl_mail_htm' => $formdir . '/templates/mail.htm',
+			'tpl_copy_htm' => $formdir . '/templates/copy.htm',
+		];
 
-    /**
-     * Render form html
-     */
-    public function render_form() {
+		foreach ( $paths as $param => $path ) {
+			if ( is_file( $path ) ) {
+				$this->$param = $path;
+			}
+		}
+
+		$this->form_slug = $form_slug;
+		$this->post_id   = $post_id;
+	}
+
+	/**
+	 * Render form html
+	 */
+	public function render_form() {
 		if ( ! class_exists( 'Form_helper' ) ) {
 			require_once plugin_dir_path( __FILE__ ) . '../pillanart-ms/includes/form-helper.class.php';
 		}
@@ -140,32 +137,40 @@ class Swift_contact_form {
 			'id'             => $this->form_slug,
 			'action'         => '#' . $this->form_slug,
 			'method'         => 'post',
-			'accept-charset' => 'utf-8'
+			'accept-charset' => 'utf-8',
 		];
 		$this->formhelp->html_tag( [ 'form', $args ] );
-		$this->formhelp->html_tag( [ 'input', [ 'type' => 'hidden', 'name' => 'salad', 'value' => $this->mix_salad() ] ] );
-		$this->formhelp->html_tag( [ 'input', [ 'type' => 'hidden', 'name' => 'form_slug', 'value' => $this->form_slug ] ] );
+		$this->formhelp->html_tag( [
+			                           'input',
+			                           [ 'type' => 'hidden', 'name' => 'salad', 'value' => $this->mix_salad() ],
+		                           ] );
+		$this->formhelp->html_tag( [
+			                           'input',
+			                           [ 'type' => 'hidden', 'name' => 'form_slug', 'value' => $this->form_slug ],
+		                           ] );
 
 		$noscript = '<noscript><div class="wrap-' . $this->form_slug . ' js-required">%s</div></noscript>' . "\n";
-		printf( $noscript, __( '<strong>This form requires JavaScript.</strong><br>Please allow JavaScript on this page! No malicious code here, promise.', 'swift-contact-form' ) );
+		printf( $noscript,
+		        __( '<strong>This form requires JavaScript.</strong><br>Please allow JavaScript on this page! No malicious code here, promise.',
+		            'swift-contact-form' ) );
 
-        foreach( $this->fields as $field ) {
-            $this->render_field( $field );
-        }
+		foreach ( $this->fields as $field ) {
+			$this->render_field( $field );
+		}
 
 		echo "</form>\n";
-    }
+	}
 
-    /**
-     * Save users array to db
-     *
-     * Must be public, this method also called from theme functions.php
-     */
-    public function save_transient() {
-        $this->rm_old_normal_users();
+	/**
+	 * Save users array to db
+	 *
+	 * Must be public, this method also called from theme functions.php
+	 */
+	public function save_transient() {
+		$this->rm_old_normal_users();
 
-        set_transient( 'scf-users', $this->users );
-    }
+		set_transient( 'scf-users', $this->users );
+	}
 
 	/**
 	 * Render a field html
@@ -174,7 +179,7 @@ class Swift_contact_form {
 	 *                     [1] array: field params (type, name, class, label, validate...)
 	 */
 	private function render_field( $field ) {
-		$tag = $field[0];
+		$tag  = $field[0];
 		$args = $field[1];
 		extract( $args );
 
@@ -232,41 +237,41 @@ class Swift_contact_form {
 		$this->save_formula_data( $math );
 	}
 
-    /**
-     * Math Turing test values
+	/**
+	 * Math Turing test values
 	 *
-     * @return array  [0] (int) first number
-     *                [1] (int) second number
-     *                [2] (int) operation: 0 = plus, 1 = minus
-     *                [3] (int) result
-     */
-    private function math_turing_test() {
-        $n1 = mt_rand( 1, 9 );
-        $n2 = mt_rand( 1, 9 );
-        while( $n1 === $n2 ) {
+	 * @return array  [0] (int) first number
+	 *                [1] (int) second number
+	 *                [2] (int) operation: 0 = plus, 1 = minus
+	 *                [3] (int) result
+	 */
+	private function math_turing_test() {
+		$n1 = mt_rand( 1, 9 );
+		$n2 = mt_rand( 1, 9 );
+		while ( $n1 === $n2 ) {
 			// Two different number please
-            $n2 = mt_rand( 1, 9 );
-        }
+			$n2 = mt_rand( 1, 9 );
+		}
 
-        switch ( $op = mt_rand( 0, 1 ) ) {
-            case 0:
-                $res = $n1 + $n2;
-                break;
-            case 1:
-                if ( $n2 > $n1 ) {
+		switch ( $op = mt_rand( 0, 1 ) ) {
+			case 0:
+				$res = $n1 + $n2;
+				break;
+			case 1:
+				if ( $n2 > $n1 ) {
 					// Replace numbers, so the result will be positive
-                    $n0 = $n2;
-                    $n2 = $n1;
-                    $n1 = $n0;
-                }
-                $res = $n1 - $n2;
-		        break;
-	        default:  // Avoid PhpStorm warning
-		        $res = 0;
-        }
+					$n0 = $n2;
+					$n2 = $n1;
+					$n1 = $n0;
+				}
+				$res = $n1 - $n2;
+				break;
+			default:  // Avoid PhpStorm warning
+				$res = 0;
+		}
 
-        return [ $n1, $n2, $op, $res ];
-    }
+		return [ $n1, $n2, $op, $res ];
+	}
 
 	/**
 	 * Save formula data
@@ -284,23 +289,23 @@ class Swift_contact_form {
 		$this->save_user_data( $user );
 	}
 
-    /**
-     * Form post
-     */
-    private function form_post() {
+	/**
+	 * Form post
+	 */
+	private function form_post() {
 		$this->set_form( $_POST['form_slug'], $this->unmix_salad( $_POST['salad'] ) );
-        $this->js = isset( $_POST['potato'] ) ? true : false;
+		$this->js = isset( $_POST['potato'] ) ? true : false;
 
 		// Check user was sent from the form
-        if ( ! $this->validate_user() ) {
-            $this->abort();
-        }
+		if ( ! $this->validate_user() ) {
+			$this->abort();
+		}
 
 		// Check honeypot trap
 		$answer = $this->validate_math();
-		if ( is_array( $answer) ) {
+		if ( is_array( $answer ) ) {
 			$this->register_user_spambot();
-            $this->respond( $answer );
+			$this->respond( $answer );
 		}
 
 		// Validate fields
@@ -316,11 +321,9 @@ class Swift_contact_form {
 			} else {
 				$this->subject = __( 'Pillana(r)t Contact Message', 'swift-contact-form' );
 			}
-
 		} else {
 
 			$this->subject = __( 'Pillana(r)t Wedding Request', 'swift-contact-form' );
-
 		}
 
 		// Set from address (This must match with the server or domain.)
@@ -331,7 +334,8 @@ class Swift_contact_form {
 			$this->set_address( 'to', get_option( 'admin_email' ), get_option( 'blogname' ) );
 			$this->set_address( 'replyto', $this->to['address'], $this->to['name'] );
 		} else {
-			$this->set_address( 'to', get_post_meta( $this->post_id, '_member_email', true ), get_the_title( $this->post_id ) );
+			$this->set_address( 'to', get_post_meta( $this->post_id, '_member_email', true ),
+			                    get_the_title( $this->post_id ) );
 
 			if ( 1 == get_post_meta( $this->post_id, '_email_is_public', true ) ) {
 				$this->set_address( 'replyto', $this->to['address'], $this->to['name'] );
@@ -343,7 +347,7 @@ class Swift_contact_form {
 		// Send mail
 		$respond = $this->send_mail();
 		$this->respond( $respond );
-    }
+	}
 
 	/**
 	 * Set an address after email validation
@@ -357,10 +361,9 @@ class Swift_contact_form {
 			$this->abort( 'Internal email error.' );
 		}
 
-		$address = [ 'address' => $email, 'name' => $name ];
+		$address         = [ 'address' => $email, 'name' => $name ];
 		$this->$addrname = $address;
 	}
-
 
 	/**
 	 * Crypt post ID a little bit
@@ -368,38 +371,39 @@ class Swift_contact_form {
 	 * @return float
 	 */
 	private function mix_salad() {
-		return ($this->post_id + 13547) * 3;
+		return ( $this->post_id + 13547 ) * 3;
 	}
 
 	/**
 	 * Decrypt post ID
 	 *
 	 * @param  float $salad
+	 *
 	 * @return float
 	 */
 	private function unmix_salad( $salad ) {
 		return $salad / 3 - 13547;
 	}
 
-    /**
-     * Respond
-	 *
-     * @param array $messages
-     */
-    private function respond( $messages ) {
-        if ( true === $this->js ) {
-            $this->respond_json( $messages );
-        }
-
-		$this->abort();
-    }
-
-    /**
-     * Respond json
+	/**
+	 * Respond
 	 *
 	 * @param array $messages
-     */
-    private function respond_json( $messages ) {
+	 */
+	private function respond( $messages ) {
+		if ( true === $this->js ) {
+			$this->respond_json( $messages );
+		}
+
+		$this->abort();
+	}
+
+	/**
+	 * Respond json
+	 *
+	 * @param array $messages
+	 */
+	private function respond_json( $messages ) {
 		// Allow for cross-domain requests (from the frontend).
 		send_origin_headers();
 
@@ -409,27 +413,31 @@ class Swift_contact_form {
 		send_nosniff_header();
 		nocache_headers();
 
-        echo json_encode( $messages );
-    }
+		echo json_encode( $messages );
+	}
 
 	/**
 	 * Prepare post data, setup PHPMailer and send it out
 	 */
 	private function send_mail() {
 		// First line
-		switch ($this->form_slug) {
+		switch ( $this->form_slug ) {
 			case 'wedding_request':
 				$values = [
-					'mail_message' => sprintf( __( 'Direct wedding request sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
-					'copy_message' => sprintf( __( 'This is a copy of your wedding request sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) )
+					'mail_message' => sprintf( __( 'Direct wedding request sent from <a href="%s">%s</a>.',
+					                               'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
+					'copy_message' => sprintf( __( 'This is a copy of your wedding request sent from <a href="%s">%s</a>.',
+					                               'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
 				];
 				break;
 
 			case 'contact':
 			default:
 				$values = [
-					'mail_message' => sprintf( __( 'Contact message sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
-					'copy_message' => sprintf( __( 'This is a copy of your message sent from <a href="%s">%s</a> via Contact form.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) )
+					'mail_message' => sprintf( __( 'Contact message sent from <a href="%s">%s</a>.',
+					                               'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
+					'copy_message' => sprintf( __( 'This is a copy of your message sent from <a href="%s">%s</a> via Contact form.',
+					                               'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
 				];
 		}
 
@@ -446,11 +454,11 @@ class Swift_contact_form {
 
 			if ( 'input' === $tag && in_array( $type, [ 'text', 'email' ] ) && isset( $this->post[ $name ] ) ) {
 				$values[ $name . '_label' ] = $label;
-				$values[ $name ] = $this->post[ $name ];
+				$values[ $name ]            = $this->post[ $name ];
 			} elseif ( 'textarea' === $tag && isset( $this->post[ $name ] ) ) {
 				$values[ $name . '_label' ] = $label;
-				$values[ $name ] = $this->post[ $name ];
-				$values[ $name . '_html' ] = $this->text2html( $this->post[ $name ] );
+				$values[ $name ]            = $this->post[ $name ];
+				$values[ $name . '_html' ]  = $this->text2html( $this->post[ $name ] );
 			} elseif ( 'input' === $tag && 'checkbox' === $type && 'sendcopy' === $name && 1 == $this->post[ $name ] ) {
 				$sendcopy = true;
 			}
@@ -466,7 +474,7 @@ class Swift_contact_form {
 			include_once plugin_dir_path( __FILE__ ) . 'lib/PHPMailer/PHPMailerAutoload.php';
 		}
 
-		$mail = new PHPMailer;
+		$mail          = new PHPMailer;
 		$mail->CharSet = get_bloginfo( 'charset' );
 		$mail->Subject = $this->subject;
 		$mail->setLanguage( substr( get_locale(), 0, 2 ) );
@@ -478,13 +486,19 @@ class Swift_contact_form {
 			$mail->Body = $this->render_email_template( $this->tpl_mail_txt, $this->textify_msg( $values ) );
 		}
 
-
 		$mail->setFrom( $this->from['address'], $this->from['name'] );
 		$mail->addReplyTo( $from_email, $from_name );
 		$mail->addAddress( $this->to['address'], $this->to['name'] );
 
 		if ( ! $mail->send() ) {
-			$respond = [ 'errors' => [ [ 'field' => 'none', 'error' => $this->messages['errors']['no_server'] . '<br>' . $mail->ErrorInfo ] ] ];
+			$respond = [
+				'errors' => [
+					[
+						'field' => 'none',
+						'error' => $this->messages['errors']['no_server'] . '<br>' . $mail->ErrorInfo,
+					],
+				],
+			];
 		} else {
 			$respond = [ 'success' => $this->messages['success'] ];
 		}
@@ -510,9 +524,10 @@ class Swift_contact_form {
 	}
 
 	private function textify_msg( $values ) {
-		foreach (['mail_message', 'copy_message', 'message'] as $var) {
+		foreach ( [ 'mail_message', 'copy_message', 'message' ] as $var ) {
 			$values[ $var ] = strip_tags( $values[ $var ] );
 		}
+
 		return $values;
 	}
 
@@ -521,6 +536,7 @@ class Swift_contact_form {
 	 *
 	 * @param string $tpl_path
 	 * @param array  $values
+	 *
 	 * @return string
 	 */
 	private function render_email_template( $tpl_path, $values ) {
@@ -536,6 +552,7 @@ class Swift_contact_form {
 	 * Convert textarea to html
 	 *
 	 * @param string $str
+	 *
 	 * @return string
 	 */
 	private function text2html( $str ) {
@@ -559,19 +576,23 @@ class Swift_contact_form {
 			$val = (int) sanitize_text_field( $_POST['answer'] );
 			if ( true !== ( $validation = $this->validate_numeric( [ $val ] ) ) ) {
 				$this->log_user_fail( 'User filled up math field with non numeric data' );
-				return [ 'errors' => [
-                    [
-                        'field' => 'answer',
-                        'error' => $this->messages['errors'][ $validation ]
-                    ]
-                ] ];
+
+				return [
+					'errors' => [
+						[
+							'field' => 'answer',
+							'error' => $this->messages['errors'][ $validation ],
+						],
+					],
+				];
 			}
 
-			$user = $this->get_user_data();
+			$user      = $this->get_user_data();
 			$post_data = [ 'n1', 'n2', 'op', 'answer' ];
 			foreach ( $post_data as $i ) {
-				if ( $user['math_' . $i ] !== (int) $_POST[ $i ] ) {
+				if ( $user[ 'math_' . $i ] !== (int) $_POST[ $i ] ) {
 					$this->log_user_fail( "User filled up invisible field with wrong math_$i value" );
+
 					return [ 'errors' => [ [ 'field' => 'answer', 'error' => $this->messages['errors']['math'] ] ] ];
 				}
 			}
@@ -580,7 +601,6 @@ class Swift_contact_form {
 
 			// Right result. Ok, than give false positive message
 			return [ 'success' => $this->messages['success'] ];
-
 		}
 
 		return true;
@@ -601,10 +621,10 @@ class Swift_contact_form {
 	 */
 	private function validate_fields() {
 		foreach ( $this->fields as $args ) {
-			$tag = $args[0];
+			$tag    = $args[0];
 			$params = $args[1];
-			$name = $params['name'];
-			$post = isset( $_POST[ $name ] ) ? $_POST[ $name ] : null;
+			$name   = $params['name'];
+			$post   = isset( $_POST[ $name ] ) ? $_POST[ $name ] : null;
 
 			// Filter inputs
 			if ( 'textarea' === $tag ) {
@@ -620,14 +640,16 @@ class Swift_contact_form {
 				$validators = explode( '|', $params['validate'] );
 				foreach ( $validators as $validator ) {
 					if ( false !== $pos = strpos( $validator, '=' ) ) {
-						$func  = substr( $validator, 0, $pos );
+						$func = substr( $validator, 0, $pos );
 						$data = (int) substr( $validator, $pos + 1 );
 					} else {
 						$func = $validator;
 						$data = null;
 					}
 
-					if ( true !== ( $validation = call_user_func( [ $this, 'validate_' . $func ], [ $post, $data ] ) ) ) {
+					if ( true !== ( $validation = call_user_func( [ $this, 'validate_' . $func ],
+					                                              [ $post, $data ] ) )
+					) {
 						$this->log_user_fail( 'Validation error: ' . $validation );
 						$errors[] = [ 'field' => $name, 'error' => $this->messages['errors'][ $validation ] ];
 					}
@@ -644,6 +666,7 @@ class Swift_contact_form {
 	 * Validators
 	 *
 	 * @param  array $args
+	 *
 	 * @return bool|string True if passed or error message index
 	 */
 
@@ -692,122 +715,121 @@ class Swift_contact_form {
 		return true;
 	}
 
-    /**
-     * Validate user
+	/**
+	 * Validate user
 	 *
-     * @return bool
-     */
-    private function validate_user() {
-        if ( ! isset( $this->users[ $this->fprint ] ) ) {
+	 * @return bool
+	 */
+	private function validate_user() {
+		if ( ! isset( $this->users[ $this->fprint ] ) ) {
 
 			// User tried to post without viewing the form
-            $user = array_merge( $this->get_server_data(), [
+			$user = array_merge( $this->get_server_data(), [
 				'start_time'        => $this->mtime,
-                'first_submit_time' => $this->mtime,
-                'last_submit_time'  => $this->mtime,
+				'first_submit_time' => $this->mtime,
+				'last_submit_time'  => $this->mtime,
 				'type'              => 'SPAMBOT',
-                'fails'             => [ 'User tried to post without viewing the form' ],
-            ]);
+				'fails'             => [ 'User tried to post without viewing the form' ],
+			] );
 
-            $this->save_user_data( $user );
-            return false;
+			$this->save_user_data( $user );
 
-        } else {
+			return false;
+		} else {
 
-            $user = $this->get_user_data();
-
-        }
+			$user = $this->get_user_data();
+		}
 
 		// Save submit times
-        if ( ! isset( $user['first_submit_time'] ) ) {
-            $user['first_submit_time'] = $this->mtime;
-        }
-        $user['last_submit_time'] = $this->mtime;
+		if ( ! isset( $user['first_submit_time'] ) ) {
+			$user['first_submit_time'] = $this->mtime;
+		}
+		$user['last_submit_time'] = $this->mtime;
 
 		$this->save_user_data( $user );
 
-
 		// Ban spambots for three days
-        if ( 'SPAMBOT' === $user['type'] ) {
-            if ( 3 * DAY_IN_SECONDS > $this->mtime - $user['last_submit_time'] ) {
+		if ( 'SPAMBOT' === $user['type'] ) {
+			if ( 3 * DAY_IN_SECONDS > $this->mtime - $user['last_submit_time'] ) {
 
 				$this->log_user_fail( 'Banned SPAMBOT another attempt' );
-				return false;
 
-            }
-        }
+				return false;
+			}
+		}
 
 		// User filled up the form in 1 second
-        if ( 1 > $this->mtime - $user['start_time'] ) {
+		if ( 1 > $this->mtime - $user['start_time'] ) {
 
 			$this->log_user_fail( 'User filled up the form within 1 second' );
-            return false;
 
-        }
+			return false;
+		}
 
-        // User failed at least 3 times, and avarage submit time is less than 1 second
+		// User failed at least 3 times, and avarage submit time is less than 1 second
 		if ( isset( $user['fails'] ) && 3 >= count( $user['fails'] ) ) {
 
-            $avg_submit_time = ( $this->mtime - $user['first_submit_time'] ) / count( $user['fails'] );
+			$avg_submit_time = ( $this->mtime - $user['first_submit_time'] ) / count( $user['fails'] );
 
-            if ( 1 > $avg_submit_time ) {
+			if ( 1 > $avg_submit_time ) {
 
 				$this->log_user_fail( 'User avarage submit time less than 1 second' );
 				$this->register_user_spambot();
-                return false;
 
-            }
-
-        }
+				return false;
+			}
+		}
 
 		// Ok
-        $user['type'] = 'NORMAL';
-        $this->save_user_data( $user );
-        return true;
-    }
+		$user['type'] = 'NORMAL';
+		$this->save_user_data( $user );
+
+		return true;
+	}
 
 	/**
 	 * Register user type as spambot
 	 */
 	private function register_user_spambot() {
-		$user = $this->get_user_data();
+		$user         = $this->get_user_data();
 		$user['type'] = 'SPAMBOT';
 		$this->save_user_data( $user );
 	}
 
-    /**
-     * Create user fingerprint
-     */
-    private function create_fingerprint() {
-        $uagent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
-        $ip     = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : null;
-        $fprint = substr( NONCE_SALT, 0, 20 ) . $uagent . substr( NONCE_SALT, 20, 20 ) . $ip . substr( NONCE_SALT, -20 );
+	/**
+	 * Create user fingerprint
+	 */
+	private function create_fingerprint() {
+		$uagent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
+		$ip     = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : null;
+		$fprint = substr( NONCE_SALT, 0, 20 ) . $uagent . substr( NONCE_SALT, 20, 20 ) . $ip . substr( NONCE_SALT,
+		                                                                                               - 20 );
 
-        return md5( $fprint );
-    }
+		return md5( $fprint );
+	}
 
-    /**
-     * Hello user
-     */
-    private function hello_user() {
+	/**
+	 * Hello user
+	 */
+	private function hello_user() {
 		$user = $this->get_user_data();
-        $this->save_user_data( $user );
-    }
+		$this->save_user_data( $user );
+	}
 
-    /**
-     * Get server data
+	/**
+	 * Get server data
 	 *
-     * @return array
-     */
-    private function get_server_data() {
-        $user = [];
-        $user['IP']      = isset( $_SERVER['REMOTE_ADDR'] )     ? $_SERVER['REMOTE_ADDR']     : null;
-        $user['uagent']  = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
-        $user['referer'] = isset( $_SERVER['HTTP_REFERER'] )    ? $_SERVER['HTTP_REFERER']    : null;
-        $user['type']    = 'NORMAL';
+	 * @return array
+	 */
+	private function get_server_data() {
+		$user            = [];
+		$user['IP']      = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : null;
+		$user['uagent']  = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
+		$user['referer'] = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : null;
+		$user['type']    = 'NORMAL';
 
-        return $user;
-    }
+		return $user;
+	}
 
 	/**
 	 * Log user fail
@@ -817,25 +839,25 @@ class Swift_contact_form {
 	private function log_user_fail( $msg ) {
 		$user = $this->get_user_data();
 
-		$fails = isset( $user['fails'] ) ? $user['fails'] : [];
+		$fails   = isset( $user['fails'] ) ? $user['fails'] : [];
 		$fails[] = $msg;
 
 		$this->save_user_data( $user );
 	}
 
-    /**
-     * Remove old normal users
-     */
-    private function rm_old_normal_users() {
-        foreach ( $this->users as $fprint => $user ) {
-	        $age = $this->mtime - $user['start_time'];
-	        $expired = $age > 12 * HOUR_IN_SECONDS;
+	/**
+	 * Remove old normal users
+	 */
+	private function rm_old_normal_users() {
+		foreach ( $this->users as $fprint => $user ) {
+			$age     = $this->mtime - $user['start_time'];
+			$expired = $age > 12 * HOUR_IN_SECONDS;
 
-	        if ( $expired && 'NORMAL' === $user['type'] ) {
-		        unset( $this->users[ $fprint ] );
-	        }
-        }
-    }
+			if ( $expired && 'NORMAL' === $user['type'] ) {
+				unset( $this->users[ $fprint ] );
+			}
+		}
+	}
 
 	/**
 	 * Save users data and exit
@@ -843,7 +865,7 @@ class Swift_contact_form {
 	 * @param null|string $msg
 	 */
 	private function abort( $msg = null ) {
-        $this->save_transient();
+		$this->save_transient();
 
 		if ( isset( $msg ) ) {
 			exit( $msg );
@@ -857,9 +879,9 @@ class Swift_contact_form {
 	 *
 	 * @param array $data
 	 */
-    private function save_user_data( $data ) {
-        $this->users[ $this->fprint ] = $data;
-    }
+	private function save_user_data( $data ) {
+		$this->users[ $this->fprint ] = $data;
+	}
 
 	/**
 	 * Get user data
@@ -870,10 +892,9 @@ class Swift_contact_form {
 		}
 
 		// else
-		$user = $this->get_server_data();
-        $user['start_time'] = $this->mtime;
+		$user               = $this->get_server_data();
+		$user['start_time'] = $this->mtime;
 
 		return $user;
 	}
-
 }
