@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name:   Site Functionality Plugin
+Plugin Name:   WordPress Tweaks
 Plugin URI:
-Description:   Custom functionality plugin for pillanart.hu
+Description:   Various optimizations to any WordPress-based project.
 Version:       1.6.0
 Author:        Gyorgy Papp
 Author URI:
-Text Domain:   site-functionality-plugin
+Text Domain:   wp-tweaks
 Domain Path:   /languages
 
 License:       WTFPL License
