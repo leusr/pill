@@ -138,7 +138,7 @@ AddDefaultCharset utf-8
 # Hide WordPress deeplinks
 <IfModule mod_rewrite.c>
     RewriteRule ^sendform /app/plugins/swift-contact-form/sendform.php [L]
-    RewriteRule ^login /wpbase/wp-login.php [L]
+    RewriteRule ^login /wp/wp-login.php [L]
 </IfModule>
 
 # New filename-based cache busting
