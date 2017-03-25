@@ -2,105 +2,46 @@
 
 class Swift_contact_form {
 
-	/**
-	 * Contain data about sender
-	 * @var array
-	 */
+	/** @var array Contain data about sender */
 	private $users;
-
-	/**
-	 * Registered forms
-	 * @var array
-	 */
+	/** @var array Registered forms */
 	private $forms = [ 'contact', 'wedding_request' ];
-
-	/**
-	 * Slug of current form
-	 * @var string
-	 */
+	/** @var string Slug of current form */
 	private $form_slug;
-
-	/**
-	 * WordPress post ID
-	 * @var int
-	 */
+	/** @var int WordPress post ID */
 	private $post_id;
-
-	/**
-	 * Respond messages
-	 * @var array
-	 */
+	/** @var array Respond messages */
 	private $messages;
-
-	/**
-	 * Fields of the form
-	 * @var array
-	 */
+	/** @var array Fields of the form */
 	private $fields;
 
-    /**
-     * Text and html email templates
-     * @var string|null
-     */
+	/** @var string|null Text and html email templates */
     private $tpl_mail_txt = null;
     private $tpl_copy_txt = null;
     private $tpl_mail_htm = null;
     private $tpl_copy_htm = null;
 
-	/**
-	 * User fingerprint generated from $_SERVER
-	 * @var string
-	 */
+	/** @var string User fingerprint generated from $_SERVER */
 	private $fprint;
-
-	/**
-	 * @var Form_helper object
-	 */
+	/** @var Form_helper object */
 	private $formhelp;
-
-	/**
-	 * Microtime now
-	 * @var int
-	 */
+	/** @var int Microtime now */
 	private $mtime;
-
-	/**
-	 * Browser javascript is enabled or disabled
-	 * @var bool
-	 */
+	/** @var bool Browser javascript is enabled or disabled */
 	private $js = false;
-
-	/**
-	 * Sanitized and validated $_POST data
-	 * @var array
-	 */
+	/** @var array Sanitized and validated $_POST data */
 	private $post = [];
-
-	/**
-	 * Primary to email address and name
-	 * @var array
-	 */
+	/** @var array Primary to email address and name */
 	private $to = [ 'address' => '', 'name' => '' ];
-
-	/**
-	 * From email address and name
-	 * @var array
-	 */
+	/** @var array From email address and name */
 	private $from = [ 'address' => '', 'name' => '' ];
-
-	/**
-	 * Reply to email address and name
-	 * @var array
-	 */
+	/** @var array Reply to email address and name */
 	private $replyto = [ 'address' => '', 'name' => '' ];
-
-	/**
-	 * Email subject
-	 * @var string
-	 */
+	/** @var string Email subject */
 	private $subject;
 
-    /**
+
+	/**
      * Constructor.
      */
     public function __construct() {
@@ -388,7 +329,8 @@ class Swift_contact_form {
 		// Set to and replyto addresses
 		if ( 'contact' === $this->form_slug ) {
 
-			$this->set_address( 'to', get_option( 'admin_email' ), get_option( 'blogname' ) );
+			// $this->set_address( 'to', get_option( 'admin_email' ), get_option( 'blogname' ) );
+			$this->set_address( 'to', 'gyuripp@gmail.com', get_option( 'blogname' ) . ' Administrator' );
 			$this->set_address( 'replyto', $this->to['address'], $this->to['name'] );
 
 		} else {
