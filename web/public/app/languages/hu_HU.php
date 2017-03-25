@@ -1,1 +1,0 @@
-<?php // Slinece is golden
