@@ -44,25 +44,6 @@
 				</div>
 				<!-- /Main Content -->
 
-				<!-- Sidebar -->
-				<div class="sidebar clear">
-
-					<?php the_billboard_post() ?>
-
-					<?php
-						global $wp_query;
-						if ( $wp_query->found_posts > 4 ) {
-							the_latest_tweets();
-						}
-					?>
-
-					<?php
-						if ( $wp_query->found_posts > 18 ) {
-							the_recent_posts();
-						}
-					?>
-
-				</div>
-				<!-- /Sidebar -->
-
-<?php get_footer();
+<?php
+get_sidebar();
+get_footer();
