@@ -11,8 +11,7 @@
 
 					<h3 class="main-title"><?php single_cat_title() ?></h3>
 
-						<?php query_posts( $query_string . '&posts_per_page=-1' );
-						if ( have_posts() ) : ?>
+						<?php global $query_string; query_posts( $query_string . '&posts_per_page=-1' ); if ( have_posts() ) : ?>
 
 							<div class="post-exc-sm-list clear">
 
