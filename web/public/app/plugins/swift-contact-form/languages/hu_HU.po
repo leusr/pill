@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Swift Contact Form\n"
-"POT-Creation-Date: 2017-03-24 22:26+0100\n"
-"PO-Revision-Date: 2017-03-24 22:27+0100\n"
+"POT-Creation-Date: 2017-03-25 05:05+0100\n"
+"PO-Revision-Date: 2017-03-25 05:07+0100\n"
 "Last-Translator: Gyorgy Papp <gyuripp@gmail.com>\n"
 "Language-Team: - <gyorgy.pap@gmail.com>\n"
 "Language: hu_HU\n"
@@ -15,47 +15,46 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c\n"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../forms/contact/fields.php:8 ../forms/wedding_request/fields.php:8
+#: ../forms/contact/fields.php:9 ../forms/wedding_request/fields.php:8
 msgid "Name"
 msgstr "Név"
 
-#: ../forms/contact/fields.php:17 ../forms/wedding_request/fields.php:17
+#: ../forms/contact/fields.php:19 ../forms/wedding_request/fields.php:17
 msgid "E-mail"
 msgstr "E-mail"
 
-#: ../forms/contact/fields.php:26 ../forms/wedding_request/fields.php:26
+#: ../forms/contact/fields.php:29 ../forms/wedding_request/fields.php:26
 msgid "Phone"
 msgstr "Telefon"
 
-#: ../forms/contact/fields.php:34
-msgid "Subject"
-msgstr "Tárgy"
-
-#: ../forms/contact/fields.php:42
+#: ../forms/contact/fields.php:38
 msgid "Location"
 msgstr "Helyszín"
 
-#: ../forms/contact/fields.php:50
+#: ../forms/contact/fields.php:48
 msgid "Expected event duration"
 msgstr "Kért rendelkezésre állási idő"
 
-#: ../forms/contact/fields.php:57 ../forms/wedding_request/fields.php:51
+#: ../forms/contact/fields.php:58
+msgid "Subject"
+msgstr "Tárgy"
+
+#: ../forms/contact/fields.php:66 ../forms/wedding_request/fields.php:51
 msgid "Message"
 msgstr "Üzenet"
 
-#: ../forms/contact/fields.php:65 ../forms/wedding_request/fields.php:59
+#: ../forms/contact/fields.php:75 ../forms/wedding_request/fields.php:59
 msgid "Send a copy to my e-mail address"
 msgstr "Kérek egy másolatot a megadott címemre"
 
-#: ../forms/contact/fields.php:74 ../forms/wedding_request/fields.php:68
+#: ../forms/contact/fields.php:85 ../forms/wedding_request/fields.php:68
 msgid "Please answer the question!"
 msgstr "Kérlek, írd be az eredményt!"
 
-#: ../forms/contact/fields.php:81 ../forms/wedding_request/fields.php:75
+#: ../forms/contact/fields.php:93 ../forms/wedding_request/fields.php:75
 msgid "Send"
 msgstr "Küldés"
 
@@ -103,7 +102,7 @@ msgstr "Esküvő helye"
 msgid "Message sent, thanks. :) I will respond as soon as possible!"
 msgstr "Üzenet elküldve, köszönöm. :) Hamarosan reagálok!"
 
-#: ../swift-contact-form.class.php:209
+#: ../swift-contact-form.class.php:150
 msgid ""
 "<strong>This form requires JavaScript.</strong><br>Please allow JavaScript "
 "on this page! No malicious code here, promise."
@@ -112,23 +111,63 @@ msgstr ""
 "scripteket ezen az oldalon. Esküszünk, hogy semmilyen rosszindulatú kódot "
 "nem futtatunk."
 
-#: ../swift-contact-form.class.php:376
+#: ../swift-contact-form.class.php:317
 msgid "Pillana(r)t Contact Message"
 msgstr "Pillana(r)t üzenet a Kapcsolat oldalról"
 
-#: ../swift-contact-form.class.php:381
+#: ../swift-contact-form.class.php:322
 msgid "Pillana(r)t Wedding Request"
 msgstr "Pillana(r)t ajánlatkérés"
 
-#: ../swift-contact-form.class.php:485
+#: ../swift-contact-form.class.php:430
 #, php-format
-msgid "Message sent from %s by %s form."
-msgstr "Ez az üzenet a %s-ról jött a %s formon keresztül."
+msgid "Direct wedding request sent from <a href=\"%s\">%s</a>."
+msgstr "Direkt ajánlatkérés a <a href=\"%s\">%s</a>-ról."
 
-#: ../swift-contact-form.class.php:486
+#: ../swift-contact-form.class.php:431
 #, php-format
-msgid "This is a copy of your message sent from %s by %s form."
-msgstr "Ez egy másolat, amit a %s-on küldtél a %s formmal."
+msgid "This is a copy of your wedding request sent from <a href=\"%s\">%s</a>."
+msgstr ""
+"Ez egy másolat az ajánlatkérésről, amit a <a href=\"%s\">%s</a>-on küldtél."
+
+#: ../swift-contact-form.class.php:438
+#, php-format
+msgid "Contact message sent from <a href=\"%s\">%s</a>."
+msgstr "Üzenet a <a href=\"%s\">%s</a> Kapcsolat formján keresztül."
+
+#: ../swift-contact-form.class.php:439
+#, php-format
+msgid ""
+"This is a copy of your message sent from <a href=\"%s\">%s</a> via Contact "
+"form."
+msgstr ""
+"Ez egy másolat az üzenetről, amit a <a href=\"%s\">%s</a> Kapcsolat oldalán "
+"küldtél."
+
+#~ msgid "Wedding request sent from <a href=\"%s\">%s</a>."
+#~ msgstr "Ajánlatkérés a <a href=\"%s\">%s</a>-ról."
+
+#~ msgid "Message sent from <a href=\"%s\">%s</a> by Contact form."
+#~ msgstr "Üzenet a <a href=\"%s\">%s</a> Kapcsolat formon keresztül."
+
+#~ msgid ""
+#~ "This is a copy of your message sent from <a href=\"%s\">%s</a> by Contact "
+#~ "form."
+#~ msgstr ""
+#~ "Ez egy másolat az üzenetről, amit a <a href=\"%s\">%s</a> Kapcsolat "
+#~ "oldalán küldtél."
+
+#~ msgid "Wedding Request"
+#~ msgstr "Ajánlatkérés"
+
+#~ msgid "Contact"
+#~ msgstr "Kapcsolat"
+
+#~ msgid "Message sent from %s by %s form."
+#~ msgstr "Ez az üzenet a %s-ról jött a(z) %s formon keresztül."
+
+#~ msgid "This is a copy of your message sent from %s by %s form."
+#~ msgstr "Ez egy másolat arról, amit a %s-on küldtél a(z) %s formmal."
 
 #~ msgid "Wedding venue"
 #~ msgstr "Találkozó helye"

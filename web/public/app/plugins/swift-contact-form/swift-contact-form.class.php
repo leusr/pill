@@ -328,13 +328,9 @@ class Swift_contact_form {
 
 		// Set to and replyto addresses
 		if ( 'contact' === $this->form_slug ) {
-
-			// $this->set_address( 'to', get_option( 'admin_email' ), get_option( 'blogname' ) );
-			$this->set_address( 'to', 'gyuripp@gmail.com', get_option( 'blogname' ) . ' Administrator' );
+			$this->set_address( 'to', get_option( 'admin_email' ), get_option( 'blogname' ) );
 			$this->set_address( 'replyto', $this->to['address'], $this->to['name'] );
-
 		} else {
-
 			$this->set_address( 'to', get_post_meta( $this->post_id, '_member_email', true ), get_the_title( $this->post_id ) );
 
 			if ( 1 == get_post_meta( $this->post_id, '_email_is_public', true ) ) {
@@ -342,7 +338,6 @@ class Swift_contact_form {
 			} else {
 				$this->set_address( 'replyto', $this->from['address'], $this->from['name'] );
 			}
-
 		}
 
 		// Send mail
@@ -422,11 +417,21 @@ class Swift_contact_form {
 	 */
 	private function send_mail() {
 		// First line
-		$formname = ucfirst( str_replace( '_', ' ', $this->form_slug ) );
-		$values = [
-			'mail_message' => sprintf( __( 'Message sent from %s by %s form.', 'swift-contact-form' ), get_option( 'blogname' ), $formname ),
-			'copy_message' => sprintf( __( 'This is a copy of your message sent from %s by %s form.', 'swift-contact-form' ), get_option( 'blogname' ), $formname )
-		];
+		switch ($this->form_slug) {
+			case 'wedding_request':
+				$values = [
+					'mail_message' => sprintf( __( 'Direct wedding request sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
+					'copy_message' => sprintf( __( 'This is a copy of your wedding request sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) )
+				];
+				break;
+
+			case 'contact':
+			default:
+				$values = [
+					'mail_message' => sprintf( __( 'Contact message sent from <a href="%s">%s</a>.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) ),
+					'copy_message' => sprintf( __( 'This is a copy of your message sent from <a href="%s">%s</a> via Contact form.', 'swift-contact-form' ), home_url(), get_option( 'blogname' ) )
+				];
+		}
 
 		// Prepare posted data for templates
 		$sendcopy = false;
@@ -451,8 +456,6 @@ class Swift_contact_form {
 			}
 		}
 		/**
-		 * @var $mail_message
-		 * @var $copy_message
 		 * @var $from_email
 		 * @var $from_name
 		 */
@@ -470,10 +473,11 @@ class Swift_contact_form {
 
 		if ( isset( $this->tpl_mail_htm ) ) {
 			$mail->msgHTML( $this->render_email_template( $this->tpl_mail_htm, $values ) );
-			$mail->AltBody = $this->render_email_template( $this->tpl_mail_txt, $values );
+			$mail->AltBody = $this->render_email_template( $this->tpl_mail_txt, $this->textify_msg( $values ) );
 		} else {
-			$mail->Body = $this->render_email_template( $this->tpl_mail_txt, $values );
+			$mail->Body = $this->render_email_template( $this->tpl_mail_txt, $this->textify_msg( $values ) );
 		}
+
 
 		$mail->setFrom( $this->from['address'], $this->from['name'] );
 		$mail->addReplyTo( $from_email, $from_name );
@@ -492,9 +496,9 @@ class Swift_contact_form {
 
 			if ( isset( $this->tpl_copy_htm ) ) {
 				$mail->msgHTML( $this->render_email_template( $this->tpl_copy_htm, $values ) );
-				$mail->AltBody = $this->render_email_template( $this->tpl_copy_txt, $values );
+				$mail->AltBody = $this->render_email_template( $this->tpl_copy_txt, $this->textify_msg( $values ) );
 			} else {
-				$mail->Body = $this->render_email_template( $this->tpl_copy_txt, $values );
+				$mail->Body = $this->render_email_template( $this->tpl_copy_txt, $this->textify_msg( $values ) );
 			}
 
 			$mail->addReplyTo( $this->replyto['address'], $this->replyto['name'] );
@@ -503,6 +507,13 @@ class Swift_contact_form {
 		}
 
 		return $respond;
+	}
+
+	private function textify_msg( $values ) {
+		foreach (['mail_message', 'copy_message', 'message'] as $var) {
+			$values[ $var ] = strip_tags( $values[ $var ] );
+		}
+		return $values;
 	}
 
 	/**
