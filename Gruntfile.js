@@ -16,17 +16,16 @@ module.exports = function (grunt) {
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
 
-        wpthemedata: '/*\n' +
-            'Theme Name:  Pillana(r)t\n' +
-            'Description: <%= pkg.description %>\n' +
-            'Version:     <%= pkg.version %>\n' +
-            'Author:      <%= pkg.author.name %>\n' +
-            'Text Domain: pillanart-theme\n' +
-            '*/',
+        wpthemedata: ['/*',
+            'Theme Name:    Pillana(r)t',
+            'Description:   <%= pkg.description %>',
+            'Version:       <%= pkg.version %>',
+            'Author:        <%= pkg.author.name %>',
+            'Text Domain:   pillanart-theme',
+            '*/'
+        ].join('\n'),
 
-        builddata: 'v<%= pkg.version %> by <%= pkg.author.name %> | ' +
-            '<%= grunt.template.today("mmm d \'yy") %> ' +
-            'at <%= grunt.template.today("H:MM") %> */',
+        builtime: '<%= grunt.template.today("mmm d \'yy") %> at <%= grunt.template.today("H:MM") %>',
 
         // Task configuration.
         less: {
@@ -47,7 +46,7 @@ module.exports = function (grunt) {
             },
             plugin: {
                 src: 'src/plugin/less/thumbnail-col.less',
-                dest: 'web/public/app/plugins/site-functionality/assets/thumbnail-col.css'
+                dest: 'web/public/app/mu-plugins/wp-tweaks/assets/thumbnail-col.css'
             }
         },
 
@@ -116,7 +115,7 @@ module.exports = function (grunt) {
             },
             plugin: {
                 src: '<%= less.plugin.dest %>',
-                dest: 'web/public/app/plugins/site-functionality/assets/thumbnail-col.min.css'
+                dest: 'web/public/app/mu-plugins/wp-tweaks/assets/thumbnail-col.min.css'
             }
         },
 
@@ -129,7 +128,6 @@ module.exports = function (grunt) {
                     "src/theme/js/jquery.easing.1.4.js",
                     "src/theme/js/jquery.mobile-nav.js",
                     "src/theme/js/jquery.gallery.js",
-                    // "src/theme/js/jquery.bxslider.js",
                     "src/vendor/bxslider-4.2.12/dist/jquery.bxslider.js",
                     "src/theme/js/jquery.main.js"
                 ],
@@ -158,7 +156,7 @@ module.exports = function (grunt) {
         usebanner: {
             theme: {
                 options: {
-                    banner: '/*! Pillana(r)t Styles <%= builddata %>'
+                    banner: '/*! Pillana(r)t styles v<%= pkg.version %> by <%= pkg.author.name %> | <%= builtime %> */'
                 },
                 files: {
                     src: ['web/public/assets/css/*.css']
@@ -166,7 +164,7 @@ module.exports = function (grunt) {
             },
             members: {
                 options: {
-                    banner: '/*! Pillana(r)t Members and SEO <%= builddata %>'
+                    banner: '/*! Pillana(r)t Members and SEO plugin v2.0.0 by <%= pkg.author.name %> | <%= builtime %> */'
                 },
                 files: {
                     src: ['web/public/app/plugins/pillanart-ms/**/*.css']
@@ -174,15 +172,18 @@ module.exports = function (grunt) {
             },
             plugin: {
                 options: {
-                    banner: '/*! Pillana(r)t Site Functionality <%= builddata %>'
+                    banner: '/*! WordPress Tweaks by <%= pkg.author.name %> | <%= builtime %> */'
                 },
                 files: {
-                    src: ['web/public/app/plugins/site-functionality/**/*.css']
+                    src: ['web/public/app/mu-plugins/wp-tweaks/**/*.css']
                 }
             },
             js: {
                 options: {
-                    banner: '/*! Pillana(r)t Scripts <%= builddata %>'
+                    banner: [
+                        '/*! Pillana(r)t scripts v<%= pkg.version %> by <%= pkg.author.name %> | <%= builtime %>',
+                        '    with jQuery Easing v1.4.0 by George McGinley, lightGallery by Sachin N and bxSlider by Steven Wanderski. */',
+                    ].join('\n')
                 },
                 files: {
                     src: ['web/public/assets/js/*.js']
