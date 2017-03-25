@@ -1,4 +1,4 @@
-/*! Pillana(r)t scripts v1.5.2 by Gyorgy Papp | Mar 25 '17 at 8:57
+/*! Pillana(r)t scripts v1.5.3 by Gyorgy Papp | Mar 25 '17 at 12:01
     with jQuery Easing v1.4.0 by George McGinley, lightGallery by Sachin N and bxSlider by Steven Wanderski. */
 /*
  * jQuery Easing v1.4.0 - http://gsgd.co.uk/sandbox/jquery/easing/
