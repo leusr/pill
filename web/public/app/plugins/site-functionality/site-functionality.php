@@ -3,7 +3,7 @@
 Plugin Name:   Site Functionality Plugin
 Plugin URI:
 Description:   Custom functionality plugin for pillanart.hu
-Version:       1.5.0
+Version:       1.6.0
 Author:        Gyorgy Papp
 Author URI:
 Text Domain:   site-functionality-plugin

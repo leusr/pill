@@ -8,7 +8,7 @@ class SFP_WP_Admin_Tweaks {
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'remove_admin_menus' ] );
 		add_action( 'admin_head', [ $this, 'kill_update_notice' ], 1 );
-		add_filter( 'user_contactmethods', [ $this, 'hide_instant_messaging' ], 10, 1 );
+		// add_filter( 'user_contactmethods', [ $this, 'hide_instant_messaging' ], 10 );
 	}
 
 	/**
