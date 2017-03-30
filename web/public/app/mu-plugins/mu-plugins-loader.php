@@ -1,11 +1,8 @@
 <?php
 
-load_mu_plugin( 'wp-tweaks' );
-load_mu_plugin( 'pillanart-ms' );
-
-if ( ! function_exists( 'load_mu_plugins' ) ) {
+if ( ! function_exists( 'load_mu_plugin' ) ) {
 	/**
-	 * This logic works only till dirnames and main php filenames are the same.
+	 * Load a must use plugin where the dirnames and main php filenames are same.
 	 *
 	 * @param $name
 	 */
@@ -16,3 +13,6 @@ if ( ! function_exists( 'load_mu_plugins' ) ) {
 		}
 	}
 }
+
+load_mu_plugin( 'wp-tweaks' );
+load_mu_plugin( 'pillanart-ms' );
