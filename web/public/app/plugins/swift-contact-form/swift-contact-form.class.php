@@ -127,17 +127,16 @@ class Swift_contact_form {
 	 */
 	public function render_form() {
 		if ( ! class_exists( 'Form_helper' ) ) {
-			foreach (
-				[
+			// @formatter:off
+			foreach ( [
 					plugin_dir_path( __FILE__ ) . '../pillanart-ms/includes/form-helper.class.php',
-					plugin_dir_path( __FILE__ ) . '../../mu-plugins/pillanart-ms/includes/form-helper.class.php',
-
-				] as $path
-			) {
+					plugin_dir_path( __FILE__ ) . '../../mu-plugins/pillanart-ms/includes/form-helper.class.php'
+				] as $path ) {
 				if ( file_exists( $path ) ) {
 					require_once $path;
 				}
 			}
+			// @formatter:on
 		}
 
 		$this->formhelp = new Form_helper( false, 'div' );
