@@ -1,12 +1,18 @@
 <?php
 
-/** This logic works only till dirnames and main php filenames are the same. */
+load_mu_plugin( 'wp-tweaks' );
+load_mu_plugin( 'pillanart-ms' );
 
-// @formatter:off
-foreach ( [
-		'wp-tweaks',
-		'pillanart-ms',
-	] as $name ) {
-	require_once __DIR__ . "/{$name}/{$name}.php";
+if ( ! function_exists( 'load_mu_plugins' ) ) {
+	/**
+	 * This logic works only till dirnames and main php filenames are the same.
+	 *
+	 * @param $name
+	 */
+	function load_mu_plugin( $name ) {
+		$path = __DIR__ . '/' . $name . '/' . $name . '.php';
+		if ( file_exists( $path ) ) {
+			require_once $path;
+		}
+	}
 }
-// @formatter:on
